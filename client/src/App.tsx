@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Router as WouterRouter, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
@@ -15,22 +15,24 @@ const Contact = lazy(() => import("./pages/Contact"));
 function Router() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-background" />}>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/services" component={Services} />
-        <Route path="/why-us" component={WhyChooseUs} />
-        <Route path="/contact" component={Contact} />
+      <WouterRouter base="/Tawasul">
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/services" component={Services} />
+          <Route path="/why-us" component={WhyChooseUs} />
+          <Route path="/contact" component={Contact} />
 
-        <Route path="/ar" component={Home} />
-        <Route path="/ar/about" component={About} />
-        <Route path="/ar/services" component={Services} />
-        <Route path="/ar/why-us" component={WhyChooseUs} />
-        <Route path="/ar/contact" component={Contact} />
+          <Route path="/ar" component={Home} />
+          <Route path="/ar/about" component={About} />
+          <Route path="/ar/services" component={Services} />
+          <Route path="/ar/why-us" component={WhyChooseUs} />
+          <Route path="/ar/contact" component={Contact} />
 
-        <Route path="/404" component={NotFound} />
-        <Route component={NotFound} />
-      </Switch>
+          <Route path="/404" component={NotFound} />
+          <Route component={NotFound} />
+        </Switch>
+      </WouterRouter>
     </Suspense>
   );
 }
