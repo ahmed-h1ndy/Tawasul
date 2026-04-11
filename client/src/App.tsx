@@ -15,7 +15,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 function Router() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-background" />}>
-      <WouterRouter base="/Tawasul">
+      <WouterRouter>
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
