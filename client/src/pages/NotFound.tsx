@@ -1,6 +1,6 @@
 /*
-Design reminder for this file: Aviation-informed luxury minimalism.
-The 404 page should feel consistent with the rest of the site — dark navy, gold accents, bilingual support.
+Design reminder for this file: Bright executive minimalism.
+The 404 page should feel consistent with the rest of the site: clean blue accents, light surfaces, bilingual support.
 */
 
 import { Button } from "@/components/ui/button";
@@ -25,7 +25,7 @@ export default function NotFound() {
       )}
     >
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(circle_at_top,_rgba(217,175,84,0.16),_transparent_42%)]" />
+        <div className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(circle_at_top,_rgba(247,106,31,0.12),_transparent_42%)]" />
         <div className="noise-overlay" />
       </div>
 
@@ -33,26 +33,27 @@ export default function NotFound() {
         <SearchX className="size-10" />
       </div>
 
-      <h1 className={cn("mt-8 text-8xl text-white", rtl ? "font-ar-heading" : "font-display")}>
-        404
-      </h1>
+      <h1 className={cn("mt-8 text-8xl text-[color:var(--foreground)]", rtl ? "font-ar-heading" : "font-display")}>404</h1>
 
-      <h2 className={cn("mt-4 text-2xl text-white/90", rtl ? "font-ar-heading" : "font-semibold")}>
+      <h2 className={cn("mt-4 text-2xl text-[rgba(10,58,102,0.94)]", rtl ? "font-ar-heading" : "font-semibold")}>
         {language === "ar" ? "الصفحة غير موجودة" : "Page Not Found"}
       </h2>
 
-      <p className="mt-3 max-w-md text-base leading-7 text-white/60">
+      <p className="mt-3 max-w-md text-base leading-7 text-[rgba(10,58,102,0.74)]">
         {language === "ar"
           ? "عذراً، الصفحة التي تبحث عنها غير موجودة. ربما تم نقلها أو حذفها."
           : "Sorry, the page you are looking for doesn't exist. It may have been moved or deleted."}
       </p>
 
-      <Link href={prefix || "/"}>
-        <Button className="mt-8 h-12 rounded-full bg-primary px-6 text-[color:var(--primary-foreground)] shadow-[0_18px_45px_rgba(217,175,84,0.26)] hover:bg-primary/92">
+      <Button
+        asChild
+        className="mt-8 h-12 rounded-full bg-primary px-6 font-semibold text-[#0A3A66] shadow-[0_18px_45px_rgba(247,106,31,0.24)] hover:bg-primary/92 hover:text-[#0A3A66]"
+      >
+        <Link href={prefix || "/"}>
           {content.nav.home}
           <ArrowRight className={cn("ml-2 size-4", rtl && "ml-0 mr-2 rotate-180")} />
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     </div>
   );
 }

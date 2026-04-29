@@ -1,11 +1,6 @@
-/*
-Design reminder for this file: Aviation-informed luxury minimalism.
-Prioritize asymmetrical composition, premium restraint, navy-and-gold authority, and true RTL adaptation.
-*/
-
 import { ReactNode, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { ArrowUpRight, Globe2, Mail, PhoneCall } from "lucide-react";
+import { ArrowUpRight, Globe2, Languages, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
@@ -31,6 +26,8 @@ const routeMap = {
   why: "/why-us",
   contact: "/contact",
 } as const;
+
+const contactIcons = [Mail, MessageCircle, Languages] as const;
 
 export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
   const [location] = useLocation();
@@ -63,132 +60,202 @@ export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
     document.documentElement.lang = language === "ar" ? "ar" : "en";
     document.documentElement.dir = rtl ? "rtl" : "ltr";
     document.title = `${content.meta.siteTitle} | ${pageTitle}`;
-  }, [content.meta.siteTitle, language, pageTitle, rtl]);
+
+    const description = document.querySelector('meta[name="description"]');
+    description?.setAttribute("content", content.meta.siteDescription);
+  }, [content.meta.siteDescription, content.meta.siteTitle, language, pageTitle, rtl]);
 
   return (
     <div
       dir={rtl ? "rtl" : "ltr"}
-      className={cn(
-        "min-h-screen bg-background text-foreground",
-        rtl ? "font-ar-body" : "font-sans"
-      )}
+      className={cn("min-h-screen bg-background text-foreground", rtl ? "font-ar-body" : "font-sans")}
     >
+      <a href="#main-content" className="skip-link">
+        {language === "ar" ? "انتقل إلى المحتوى" : "Skip to content"}
+      </a>
+
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(circle_at_top,_rgba(217,175,84,0.22),_transparent_42%),linear-gradient(180deg,rgba(8,16,33,0.85),rgba(8,16,33,0.32))]" />
-        <div className="absolute -left-32 top-24 h-80 w-80 rounded-full bg-[rgba(24,78,168,0.18)] blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[rgba(217,175,84,0.14)] blur-3xl" />
+        <div className="absolute inset-x-0 top-0 h-[40rem] bg-[radial-gradient(circle_at_top,_rgba(247,106,31,0.1),_transparent_34%),linear-gradient(180deg,rgba(244,244,242,0.78),rgba(244,244,242,0))]" />
+        <div className="absolute -left-28 top-20 h-72 w-72 rounded-full bg-[rgba(10,58,102,0.08)] blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[rgba(247,106,31,0.1)] blur-3xl" />
         <div className="noise-overlay" />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[rgba(6,12,24,0.82)] backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-[rgba(209,213,216,0.9)] bg-[rgba(244,244,242,0.9)] backdrop-blur-xl">
         <div className="container py-4">
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+            <div className="flex items-start justify-between gap-4 xl:flex-1">
               <Link href={prefix || "/"} className="group min-w-0">
                 <div className="flex items-center gap-4">
                   <img
                     src={images.logo}
                     alt="Tawasul Contact Solutions"
-                    className="h-14 w-auto rounded-xl border border-white/10 bg-white/5 p-2 shadow-[0_18px_40px_rgba(0,0,0,0.22)] transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="h-14 w-auto rounded-2xl border border-[rgba(209,213,216,0.9)] bg-white/92 p-2 shadow-[0_18px_40px_rgba(10,58,102,0.08)] transition-transform duration-300 group-hover:scale-[1.02]"
                   />
-                  <div className="min-w-0">
-                    <p className={cn("truncate text-xs uppercase tracking-[0.32em] text-primary/90", rtl && "tracking-[0.18em]")}>
-                      {content.brand.arabic} · {content.brand.short}
+                  <div className="min-w-0 space-y-1">
+                    <p
+                      className={cn(
+                        "truncate text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary",
+                        rtl && "tracking-[0.08em]"
+                      )}
+                    >
+                      {content.brand.arabic} {" / "} {content.brand.short}
                     </p>
-                    <p className={cn("truncate text-base text-white/90", rtl ? "font-ar-heading text-lg" : "font-semibold")}>
+                    <p
+                      className={cn(
+                        "truncate text-[1.05rem] text-[#0A3A66]",
+                        rtl ? "font-ar-heading text-[1.1rem] font-bold" : "font-bold tracking-[-0.01em]"
+                      )}
+                    >
                       {content.brand.full}
                     </p>
+                    <p className="hidden text-sm text-[rgba(10,58,102,0.84)] lg:block">{content.brand.tagline}</p>
                   </div>
                 </div>
               </Link>
 
-              <div className="flex items-center gap-2 sm:gap-3">
-                <Link href={languageSwitchHref}>
-                  <Button
-                    variant="outline"
-                    className="border-primary/40 bg-white/5 text-white hover:bg-primary/10 hover:text-white"
-                  >
+              <div className="hidden items-center gap-3 lg:flex xl:hidden">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-11 rounded-full border-[rgba(10,58,102,0.12)] bg-white px-4 font-semibold text-[#0A3A66] shadow-[0_10px_24px_rgba(10,58,102,0.06)] hover:bg-white hover:text-[#0A3A66]"
+                >
+                  <Link href={languageSwitchHref}>
                     <Globe2 className="size-4" />
                     {content.shared.switchLanguage}
-                  </Button>
-                </Link>
-                <Link href={`${prefix}/contact`.replace("//", "/")}>
-                  <Button className="bg-primary text-[color:var(--primary-foreground)] shadow-[0_18px_40px_rgba(217,175,84,0.24)] transition-transform duration-300 hover:scale-[1.02] hover:bg-primary/90">
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  className="h-11 rounded-full bg-primary px-5 font-semibold text-[#0A3A66] hover:bg-primary/92 hover:text-[#0A3A66]"
+                >
+                  <Link href={`${prefix}/contact`.replace("//", "/")}>
                     {content.shared.primaryCta}
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
 
-            <nav className="flex flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-              {navigation.map((item) => {
-                const isActive = normalizePath(activeBasePath) === normalizePath(routeMap[item.key]);
-                return (
-                  <Link
-                    key={item.key}
-                    href={item.href}
-                    className={cn(
-                      "rounded-full px-4 py-2 transition duration-300 hover:bg-white/8 hover:text-white",
-                      isActive && "bg-primary text-[color:var(--primary-foreground)] shadow-[0_10px_24px_rgba(217,175,84,0.2)]"
-                    )}
-                  >
-                    {item.label}
+            <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:gap-5">
+              <nav
+                aria-label={language === "ar" ? "التنقل الرئيسي" : "Primary navigation"}
+                className="flex flex-wrap items-center justify-center gap-2 rounded-[1.6rem] border border-[rgba(209,213,216,0.9)] bg-white/84 p-2 text-sm text-[rgba(10,58,102,0.84)] shadow-[0_10px_30px_rgba(10,58,102,0.06)] xl:justify-start"
+              >
+                {navigation.map((item) => {
+                  const isActive = normalizePath(activeBasePath) === normalizePath(routeMap[item.key]);
+                  return (
+                    <Link
+                      key={item.key}
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={cn(
+                        "whitespace-nowrap rounded-full px-4 py-2.5 transition duration-200 hover:bg-[rgba(247,106,31,0.08)] hover:text-[#0A3A66]",
+                        isActive &&
+                          "bg-primary font-semibold text-[#0A3A66] shadow-[0_12px_28px_rgba(247,106,31,0.24)] hover:bg-primary hover:text-[#0A3A66]"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:hidden xl:flex">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="h-11 w-full rounded-full border-[rgba(10,58,102,0.12)] bg-white px-4 font-semibold text-[#0A3A66] shadow-[0_10px_24px_rgba(10,58,102,0.06)] hover:bg-white hover:text-[#0A3A66] sm:w-auto"
+                >
+                  <Link href={languageSwitchHref}>
+                    <Globe2 className="size-4" />
+                    {content.shared.switchLanguage}
                   </Link>
-                );
-              })}
-            </nav>
+                </Button>
+                <Button
+                  asChild
+                  className="h-11 w-full rounded-full bg-primary px-5 font-semibold text-[#0A3A66] hover:bg-primary/92 hover:text-[#0A3A66] sm:w-auto"
+                >
+                  <Link href={`${prefix}/contact`.replace("//", "/")}>
+                    {content.shared.primaryCta}
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </header>
 
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
 
-      <footer className="border-t border-white/10 bg-[rgba(5,10,20,0.88)]">
-        <div className="container grid gap-10 py-12 lg:grid-cols-[1.35fr_0.9fr_0.9fr]">
+      <footer className="border-t border-[rgba(209,213,216,0.14)] bg-[linear-gradient(180deg,rgba(10,58,102,0.98),rgba(10,58,102,1))]">
+        <div className="container grid gap-10 py-14 md:grid-cols-2 xl:grid-cols-[1.15fr_0.9fr_0.9fr_1fr]">
           <div className="space-y-5">
             <div className="flex items-center gap-4">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663539899263/ksMQ8n93poZFxutxDkpq92/tawasul_logo_concept_1_blue_gold_5831c655.png"
+                src={images.logo}
                 alt="Tawasul logo"
-                className="h-16 w-auto rounded-2xl border border-white/10 bg-white/5 p-2"
+                className="h-16 w-auto rounded-2xl border border-white/14 bg-white/8 p-2"
               />
-              <div>
-                <p className={cn("text-xs uppercase tracking-[0.32em] text-primary/85", rtl && "tracking-[0.16em]")}>
+              <div className="space-y-1">
+                <p className={cn("text-xs uppercase tracking-[0.18em] text-primary/85", rtl && "tracking-[0.08em]")}>
                   {content.brand.arabic}
                 </p>
-                <p className={cn("text-xl text-white", rtl ? "font-ar-heading" : "font-display")}>
-                  {content.brand.short}
-                </p>
+                <p className={cn("text-xl text-white", rtl ? "font-ar-heading" : "font-display")}>{content.brand.short}</p>
               </div>
             </div>
-            <p className="max-w-xl text-sm leading-7 text-white/68">
-              {content.shared.footerStatement}
-            </p>
+            <p className="max-w-md text-sm leading-7 text-white/82">{content.shared.footerStatement}</p>
+            <div className="hero-badge border-white/12 bg-white/[0.12] text-white/88">
+              <Languages className="size-4 text-primary" />
+              {content.shared.coverageLabel}
+            </div>
           </div>
 
           <div className="space-y-4">
-            <p className={cn("text-sm uppercase tracking-[0.28em] text-primary/80", rtl && "tracking-[0.12em]")}>
-              {content.nav.services}
-            </p>
-            <div className="space-y-3 text-sm text-white/68">
+            <p className="section-kicker">{content.nav.services}</p>
+            <div className="space-y-3 text-sm">
               {content.shared.footerServiceLabels.map((label) => (
-                <p key={label}>{label}</p>
+                <p key={label} className="footer-link">
+                  {label}
+                </p>
               ))}
             </div>
           </div>
 
           <div className="space-y-4">
-            <p className={cn("text-sm uppercase tracking-[0.28em] text-primary/80", rtl && "tracking-[0.12em]")}>
-              {content.shared.sectionLabels.contact}
-            </p>
-            <div className="space-y-3 text-sm text-white/68">
-              <p className="flex items-center gap-2"><PhoneCall className="size-4 text-primary" /> +20 XX XXX XXXX</p>
-              <p className="flex items-center gap-2"><Mail className="size-4 text-primary" /> info@tawasul-cs.com</p>
-              <Link href={`${prefix}/contact`.replace("//", "/")} className="inline-flex items-center gap-2 text-primary transition hover:text-primary/80">
-                {content.shared.contactPrompt}
-                <ArrowUpRight className="size-4" />
-              </Link>
+            <p className="section-kicker">{content.shared.sectionLabels.overview}</p>
+            <div className="space-y-3 text-sm">
+              {content.shared.footerIndustryLabels.map((label) => (
+                <p key={label} className="footer-link">
+                  {label}
+                </p>
+              ))}
             </div>
+          </div>
+
+          <div className="space-y-4">
+            <p className="section-kicker">{content.shared.sectionLabels.contact}</p>
+            <p className="text-sm leading-7 text-white/78">{content.shared.contactPrompt}</p>
+            <div className="space-y-3">
+              {content.contact.directItems.map((item, index) => {
+                const Icon = contactIcons[index] ?? Mail;
+                return (
+                  <div key={item.label} className="flex items-start gap-3 text-sm text-white/82">
+                    <Icon className="mt-1 size-4 text-primary" />
+                    <div>
+                      <p className="text-white/72">{item.label}</p>
+                      <p className="text-white">{item.value}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <Link
+              href={`${prefix}/contact`.replace("//", "/")}
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary transition hover:text-primary/80"
+            >
+              {content.shared.primaryCta}
+              <ArrowUpRight className="size-4" />
+            </Link>
           </div>
         </div>
       </footer>

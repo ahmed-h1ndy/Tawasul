@@ -1,6 +1,6 @@
 /*
-Design reminder for this file: Aviation-informed luxury minimalism.
-Use disciplined bilingual copy, executive clarity, and premium B2B positioning.
+Content system for the bilingual corporate site.
+Copy is intentionally concise, operational, and conversion-oriented.
 */
 
 export type Language = "en" | "ar";
@@ -43,6 +43,8 @@ export type SiteCopy = {
     footerStatement: string;
     contactPrompt: string;
     footerServiceLabels: string[];
+    footerIndustryLabels: string[];
+    coverageLabel: string;
     sectionLabels: {
       overview: string;
       services: string;
@@ -56,13 +58,20 @@ export type SiteCopy = {
     title: string;
     subtitle: string;
     stats: Array<{ value: string; label: string }>;
+    proofTitle: string;
+    proofIntro: string;
+    proofItems: string[];
     overviewTitle: string;
     overviewText: string;
     serviceHighlights: Array<{ title: string; description: string }>;
+    industryTitle: string;
+    industryIntro: string;
+    industries: string[];
     whyTitle: string;
     whyItems: AdvantageItem[];
     ctaTitle: string;
     ctaText: string;
+    ctaButtonLabel: string;
   };
   about: {
     eyebrow: string;
@@ -81,10 +90,14 @@ export type SiteCopy = {
     eyebrow: string;
     title: string;
     intro: string;
+    catalogTitle: string;
     items: ServiceItem[];
     deliveryApproach: string;
     processTitle: string;
+    processIntro: string;
     processSteps: Array<{ step: string; title: string; description: string }>;
+    supportModelsTitle: string;
+    supportModels: string[];
   };
   why: {
     eyebrow: string;
@@ -93,7 +106,9 @@ export type SiteCopy = {
     items: AdvantageItem[];
     proofTitle: string;
     proofHeading: string;
+    proofText: string;
     proofPoints: string[];
+    ctaLabel: string;
   };
   contact: {
     eyebrow: string;
@@ -101,6 +116,7 @@ export type SiteCopy = {
     intro: string;
     formTitle: string;
     formHeading: string;
+    formIntro: string;
     formFields: {
       name: string;
       company: string;
@@ -111,6 +127,7 @@ export type SiteCopy = {
       success: string;
     };
     directTitle: string;
+    directIntro: string;
     directItems: Array<{ label: string; value: string }>;
     locationTitle: string;
     locationText: string;
@@ -122,334 +139,375 @@ export const siteContent: Record<Language, SiteCopy> = {
     meta: {
       siteTitle: "Tawasul Contact Solutions",
       siteDescription:
-        "Premium bilingual outsourced call center solutions for tourism, flight booking, and service-driven businesses.",
+        "Bilingual outsourced contact center support for travel, booking, and service-led businesses.",
     },
     brand: {
       short: "Tawasul",
       arabic: "تواصل",
       full: "Tawasul Contact Solutions",
-      tagline: "Remote contact center excellence for business-critical conversations.",
+      tagline: "Structured bilingual support for business-critical customer communication.",
     },
     nav: {
       home: "Home",
-      about: "About Us",
+      about: "About",
       services: "Services",
-      why: "Why Choose Us",
-      contact: "Contact Us",
+      why: "Why Tawasul",
+      contact: "Contact",
     },
     shared: {
       switchLanguage: "العربية",
       primaryCta: "Request a Consultation",
       secondaryCta: "Explore Services",
       footerStatement:
-        "Tawasul Contact Solutions helps businesses deliver responsive, multilingual, and brand-aligned customer communication.",
-      contactPrompt: "Speak with our team about your operational needs.",
+        "Tawasul helps travel, booking, and service businesses build more responsive customer communication with bilingual remote support teams.",
+      contactPrompt: "Tell us about your workflow, coverage needs, or support pressure points.",
       footerServiceLabels: [
-        "Tourism support",
-        "Flight booking support",
-        "Customer care outsourcing",
-        "Multilingual service teams",
+        "Travel support operations",
+        "Flight booking assistance",
+        "Bilingual customer care",
+        "Overflow and after-hours coverage",
       ],
+      footerIndustryLabels: [
+        "Travel agencies",
+        "Booking platforms",
+        "Tour and hospitality services",
+        "Customer-facing service businesses",
+      ],
+      coverageLabel: "English and Arabic coverage",
       sectionLabels: {
         overview: "Company Overview",
         services: "Core Services",
-        values: "Our Values",
-        advantages: "Business Advantages",
-        contact: "Get in Touch",
+        values: "How We Work",
+        advantages: "Why Tawasul",
+        contact: "Next Step",
       },
     },
     home: {
-      eyebrow: "Remote contact center excellence",
-      title:
-        "Premium outsourced call center support built for travel, booking, and service-focused businesses.",
+      eyebrow: "Bilingual contact center support",
+      title: "Bilingual contact center support built for travel, booking, and service businesses.",
       subtitle:
-        "Tawasul Contact Solutions delivers bilingual customer communication, reservation support, and scalable remote call center operations for businesses that need dependable service capacity and brand-safe conversations.",
+        "Tawasul helps companies manage customer communication with dependable English and Arabic support, reservation assistance, overflow handling, and scalable remote service operations.",
       stats: [
-        { value: "24/7", label: "Operational availability" },
-        { value: "B2B", label: "Service model" },
-        { value: "EN / AR", label: "Core language coverage" },
+        { value: "English + Arabic", label: "Core service languages" },
+        { value: "Flexible coverage", label: "Daytime, extended-hours, or overflow support" },
+        { value: "B2B delivery", label: "Structured for service-led businesses" },
       ],
-      overviewTitle: "A strategic outsourcing partner for high-volume customer interactions",
+      proofTitle: "Built for more than overflow alone",
+      proofIntro: "Tawasul is designed for businesses that need steadier customer handling, clearer workflows, and service continuity when demand rises.",
+      proofItems: [
+        "Built for customer-facing operations where missed inquiries affect revenue and trust",
+        "Aligned with your workflows, escalation paths, and service expectations",
+        "Designed to reduce internal pressure without compromising communication quality",
+      ],
+      overviewTitle: "A support partner for high-volume customer communication",
       overviewText:
-        "We support tourism companies, flight booking businesses, and service-driven organizations that require reliable inbound and outbound communication. Our model is designed to strengthen customer experience while reducing operational strain and preserving service consistency.",
+        "We support organizations that need faster response handling, steadier customer care, and more flexible communication capacity. From reservations and booking inquiries to after-hours coverage and overflow support, our teams help businesses stay reachable, organized, and service-consistent.",
       serviceHighlights: [
         {
-          title: "Tourism call center operations",
+          title: "Travel support operations",
           description:
-            "Reservation inquiries, itinerary support, confirmations, and customer follow-up for travel brands.",
+            "Inquiry handling, confirmations, itinerary-related communication, and customer follow-up for travel businesses.",
         },
         {
-          title: "Flight booking support",
+          title: "Flight booking assistance",
           description:
-            "Handling booking assistance, schedule changes, passenger communication, and service continuity.",
+            "Support for reservations, amendments, schedule-related communication, and passenger-facing service workflows.",
         },
         {
-          title: "Outsourced customer support",
+          title: "Outsourced customer care",
           description:
-            "Professional multichannel customer care aligned with your standards and operational workflows.",
+            "Structured inbound and outbound support aligned with your service rules, tone, and escalation standards.",
         },
         {
           title: "Scalable remote teams",
           description:
-            "Flexible staffing models for overflow periods, after-hours support, and business growth phases.",
+            "Flexible support capacity for busy periods, extended hours, growth phases, and operational overflow.",
         },
       ],
-      whyTitle: "Why businesses trust Tawasul",
+      industryTitle: "Where our model fits best",
+      industryIntro:
+        "We work best in service environments where inquiry speed, reservation accuracy, and customer reassurance all matter.",
+      industries: [
+        "Travel agencies and reservation teams",
+        "Flight and ticketing operations",
+        "Hospitality-linked service providers",
+        "Customer-facing businesses with growing support demand",
+      ],
+      whyTitle: "Why companies choose Tawasul",
       whyItems: [
         {
-          title: "Business-first service structure",
+          title: "Bilingual customer handling",
           description:
-            "Every workflow is designed around response quality, accountability, and measurable operational value.",
+            "English and Arabic support helps you serve wider customer segments with clearer communication.",
         },
         {
-          title: "Multilingual customer handling",
+          title: "Dependable response handling",
           description:
-            "English and Arabic support helps businesses serve broader customer segments with clarity and confidence.",
+            "We help teams stay responsive during busy periods, extended hours, and operational peaks.",
         },
         {
-          title: "Continuous availability",
+          title: "Flexible service coverage",
           description:
-            "Coverage models can support after-hours, peak-volume windows, and around-the-clock service needs.",
+            "Support models can be shaped around dedicated, shared, overflow, or after-hours requirements.",
         },
         {
-          title: "Premium brand presentation",
+          title: "Professional service presentation",
           description:
-            "Our teams are positioned to represent your business with professionalism, consistency, and care.",
+            "Customer communication is managed with consistency, care, and alignment to your brand standards.",
         },
       ],
-      ctaTitle: "Need a dependable remote call center partner?",
+      ctaTitle: "Need a more reliable customer support operation?",
       ctaText:
-        "Let us help you design a support model that fits your sector, service volume, and customer expectations.",
+        "We help businesses build support models that improve responsiveness, protect service quality, and reduce internal pressure during peak demand.",
+      ctaButtonLabel: "Discuss Your Support Model",
     },
     about: {
       eyebrow: "About Tawasul",
-      title: "Built to extend your customer communication with discipline and trust.",
+      title: "Built to strengthen customer communication without adding internal complexity.",
       intro:
-        "Tawasul Contact Solutions was shaped around a simple idea: businesses should be able to scale customer communication without compromising professionalism, responsiveness, or brand integrity.",
-      storyTitle: "Our story",
+        "Tawasul was created for businesses that need more communication capacity without losing control over service quality, customer experience, or day-to-day operating discipline.",
+      storyTitle: "Who we are",
       storyText:
-        "We focus on remote contact center services for companies that depend on accurate, timely, and reassuring communication. From travel and booking support to general customer service operations, we help organizations maintain service quality while expanding capacity through an agile outsourcing model.",
-      missionTitle: "Mission",
+        "We work with travel, booking, and service-led businesses that cannot afford missed inquiries, inconsistent customer handling, or weak after-hours responsiveness. Our role is to extend internal teams with structured outsourced support that stays aligned to real workflows and customer expectations.",
+      missionTitle: "Our mission",
       missionText:
-        "To provide businesses with premium outsourced contact center services that improve responsiveness, support continuity, and strengthen customer trust.",
-      visionTitle: "Vision",
+        "To help businesses deliver responsive, reliable, and well-managed customer communication through structured outsourced support.",
+      visionTitle: "Our vision",
       visionText:
-        "To become a preferred regional partner for bilingual remote call center operations in sectors where communication quality directly shapes customer confidence.",
-      valuesHeading: "The principles behind our service culture",
+        "To become a trusted bilingual contact center partner for service-driven businesses across travel, booking, and customer-facing sectors.",
+      valuesHeading: "How we work",
       values: [
         {
           title: "Professional representation",
           description:
-            "We communicate in a way that protects and elevates the brands we support.",
+            "We handle customer communication in a way that supports credibility, consistency, and confidence in the businesses we represent.",
         },
         {
-          title: "Operational reliability",
+          title: "Operational discipline",
           description:
-            "Consistency, responsiveness, and process discipline are central to every service engagement.",
+            "Coverage, escalation, follow-up, and reporting are managed with structure rather than ad-hoc effort.",
         },
         {
-          title: "Client partnership",
+          title: "Client alignment",
           description:
-            "We work as an operational extension of our clients rather than a detached external vendor.",
+            "We align our workflows, tone, and service rules with the way your business actually operates.",
         },
         {
           title: "Continuous improvement",
           description:
-            "We refine workflows, quality controls, and team readiness to support long-term performance.",
+            "Support quality improves through active review, clearer processes, and stronger day-to-day coordination.",
         },
       ],
     },
     services: {
-      eyebrow: "Service portfolio",
-      title: "Outsourced call center services tailored to operationally demanding businesses.",
+      eyebrow: "Outsourced support services",
+      title: "Outsourced contact center services designed around real operating needs.",
       intro:
-        "Our services are structured for companies that require responsive communication, dependable escalation paths, and service coverage that can scale with demand.",
+        "Our services are built for businesses that need faster response handling, structured customer support, and flexible service capacity without building a larger in-house team.",
+      catalogTitle: "Service lines that improve response handling and support continuity",
       items: [
         {
-          id: "tourism",
-          title: "Call center for tourism companies",
+          id: "travel-support",
+          title: "Travel support operations",
           description:
-            "Customer communication support for travel agencies, tour operators, and hospitality-linked service providers.",
+            "Support for travel agencies, tour operators, and booking teams that need dependable inquiry handling, confirmations, and customer follow-up.",
           bullets: [
             "Reservation and package inquiries",
-            "Booking confirmations and follow-up",
-            "Travel support communication",
+            "Customer follow-up and confirmations",
+            "Travel-related service communication",
           ],
         },
         {
-          id: "flight",
-          title: "Flight booking support",
+          id: "flight-booking",
+          title: "Flight booking assistance",
           description:
-            "Dedicated assistance for airlines, ticketing providers, and booking platforms managing high inquiry volumes.",
+            "Help with reservations, amendments, passenger communication, and schedule-related service interactions.",
           bullets: [
-            "Booking assistance and amendments",
-            "Schedule update communication",
-            "Passenger support coordination",
+            "Booking assistance and changes",
+            "Passenger updates and communication",
+            "Service continuity during busy periods",
           ],
         },
         {
-          id: "outsourced",
-          title: "General outsourced call center",
+          id: "customer-care",
+          title: "Outsourced customer care",
           description:
-            "Flexible remote call center operations for businesses seeking professional inbound and outbound support capacity.",
+            "Inbound and outbound customer support aligned with your processes, service expectations, and escalation rules.",
           bullets: [
-            "Inbound call handling",
-            "Outbound follow-up campaigns",
-            "Overflow and seasonal support",
-          ],
-        },
-        {
-          id: "customer-support",
-          title: "Customer support services",
-          description:
-            "Brand-aligned support designed to improve satisfaction, retention, and service continuity.",
-          bullets: [
-            "Complaint handling and resolution logging",
-            "Order or service status updates",
-            "Escalation and callback workflows",
+            "Inbound support handling",
+            "Outbound follow-up workflows",
+            "Escalation and callback coordination",
           ],
         },
         {
           id: "multilingual",
-          title: "Multilingual communication",
+          title: "Multilingual customer communication",
           description:
-            "English and Arabic communication for organizations serving diverse customer bases.",
+            "English and Arabic support for businesses serving regional and international customers.",
           bullets: [
             "Arabic-language customer handling",
-            "English-language business communication",
+            "English-language customer communication",
             "Consistent script and tone alignment",
           ],
         },
         {
-          id: "24-7",
-          title: "After-hours and 24/7 coverage",
+          id: "overflow-support",
+          title: "Overflow and seasonal support",
           description:
-            "Availability models that help businesses remain reachable during peak demand and outside standard office hours.",
+            "Additional support capacity for growing businesses, peak periods, campaign volume, or operational bottlenecks.",
+          bullets: [
+            "Overflow inquiry handling",
+            "Seasonal or campaign support",
+            "Scalable response capacity",
+          ],
+        },
+        {
+          id: "extended-hours",
+          title: "Extended-hours and after-hours coverage",
+          description:
+            "Coverage models that help businesses remain reachable outside core office hours or during high-demand windows.",
           bullets: [
             "Extended-hours support setup",
-            "Emergency and urgent inquiry coverage",
-            "Continuity planning for busy periods",
+            "After-hours customer communication",
+            "Continuity for urgent inquiries",
           ],
         },
       ],
       deliveryApproach: "Delivery approach",
-      processTitle: "How we work with clients",
+      processTitle: "How we launch and manage support",
+      processIntro:
+        "Every engagement starts with service requirements, communication rules, and the coverage model that best fits your business.",
       processSteps: [
         {
           step: "01",
-          title: "Operational assessment",
+          title: "Assess requirements",
           description:
-            "We review your service needs, peak volumes, communication priorities, and sector requirements.",
+            "We review support scope, operating hours, inquiry types, escalation needs, and pressure points.",
         },
         {
           step: "02",
-          title: "Workflow alignment",
+          title: "Align workflows",
           description:
-            "Scripts, escalation paths, service rules, and reporting expectations are structured around your brand.",
+            "Scripts, service rules, response handling, and escalation paths are structured around your workflow.",
         },
         {
           step: "03",
-          title: "Team activation",
+          title: "Activate the team",
           description:
-            "Dedicated or shared-agent models are activated according to your support scope and timeline.",
+            "Support is launched through a dedicated, shared, overflow, or after-hours model based on the agreed scope.",
         },
         {
           step: "04",
-          title: "Quality continuity",
+          title: "Monitor and improve",
           description:
-            "We maintain performance through monitoring, refinement, and consistent operational communication.",
+            "We maintain service consistency through communication, review, and ongoing process refinement.",
         },
+      ],
+      supportModelsTitle: "Support models we can structure",
+      supportModels: [
+        "Dedicated support teams",
+        "Shared service models",
+        "Overflow support capacity",
+        "After-hours coverage arrangements",
       ],
     },
     why: {
-      eyebrow: "Why choose us",
-      title: "A remote call center partner designed for resilience, quality, and cost control.",
+      eyebrow: "Why Tawasul",
+      title: "A more dependable way to extend your customer support capacity.",
       intro:
-        "Businesses choose Tawasul when they need more than extra headcount. They need a structured support operation that protects customer experience while improving coverage and efficiency.",
+        "Tawasul is built for businesses that need more than extra staffing. We provide structured remote support that improves coverage, protects customer experience, and helps teams stay responsive under pressure.",
       items: [
         {
-          title: "Sector-aware support",
+          title: "Bilingual customer handling",
           description:
-            "We understand the urgency and precision required in tourism, booking, and customer-facing service environments.",
+            "English and Arabic support improves accessibility and reduces friction across diverse customer groups.",
         },
         {
-          title: "24/7 availability options",
+          title: "Flexible service coverage",
           description:
-            "Coverage models are designed to maintain responsiveness during extended hours and high-volume periods.",
+            "Coverage can be shaped around standard hours, extended hours, overflow demand, or more dedicated support needs.",
         },
         {
-          title: "Multilingual agents",
+          title: "Travel and booking workflow awareness",
           description:
-            "English and Arabic capabilities support clearer communication across regional and international audiences.",
+            "Our service model is well suited to reservation-heavy and customer-facing environments where accuracy matters.",
         },
         {
-          title: "Technology-enabled workflows",
+          title: "Structured escalation and process alignment",
           description:
-            "Structured processes, monitoring discipline, and reporting habits help maintain service consistency.",
+            "Support works better when response rules, escalation logic, and follow-up steps are clearly managed.",
         },
         {
           title: "Cost-efficient scaling",
           description:
-            "Outsourcing allows businesses to expand customer support capacity with greater financial flexibility.",
+            "Businesses can expand customer communication capacity without carrying the full cost of in-house growth.",
         },
         {
-          title: "Trustworthy brand handling",
+          title: "Consistent service presentation",
           description:
-            "We position every interaction to reflect professionalism, reassurance, and control.",
+            "Every interaction should feel organized, respectful, and aligned with the reputation of the business behind it.",
         },
       ],
-      proofTitle: "What clients gain",
-      proofHeading: "Operational outcomes that support growth and continuity",
+      proofTitle: "What this means for your business",
+      proofHeading: "Practical outcomes, not generic promises",
+      proofText:
+        "Our model helps businesses remain reachable, organized, and service-consistent when customer communication volumes increase or operating hours expand.",
       proofPoints: [
-        "Reduced operational pressure during peak support periods",
-        "Faster response handling without compromising tone or professionalism",
-        "Reliable bilingual support for broader customer accessibility",
-        "A flexible outsourcing model that supports business growth",
+        "Faster customer response during busy periods",
+        "Less pressure on internal teams",
+        "More consistent English and Arabic customer handling",
+        "Flexible support capacity without full in-house expansion",
       ],
+      ctaLabel: "Talk to Our Team",
     },
     contact: {
-      eyebrow: "Contact us",
-      title: "Start a conversation about your support requirements.",
+      eyebrow: "Contact Tawasul",
+      title: "Let’s build the right support model for your business.",
       intro:
-        "Whether you need a dedicated outsourced team, bilingual customer support, or overflow coverage, we can help you shape the right operating model.",
-      formTitle: "Send us your inquiry",
-      formHeading: "Let us discuss the right support model for your business",
+        "Whether you need bilingual customer support, overflow coverage, or a dedicated outsourced team, we can help you define a support model that fits your workflow and service expectations.",
+      formTitle: "Tell us what you need",
+      formHeading: "Start the conversation with your support scope and priorities",
+      formIntro:
+        "Share your business type, support scope, and current challenges. Our team will review your inquiry and contact you with the most suitable next step.",
       formFields: {
-        name: "Full Name",
-        company: "Company Name",
-        email: "Business Email",
-        phone: "Phone Number",
+        name: "Full name",
+        company: "Company name",
+        email: "Business email",
+        phone: "Phone number",
         message: "Tell us about your support needs",
-        submit: "Submit Inquiry",
-        success: "Thank you. Your inquiry has been received. We will contact you soon.",
+        submit: "Send Inquiry",
+        success: "Thank you. Your inquiry has been received. Our team will contact you shortly.",
       },
-      directTitle: "Direct contact",
+      directTitle: "Speak with us directly",
+      directIntro:
+        "If you already know what you need, reach out through the channel that fits your workflow best.",
       directItems: [
-        { label: "Phone", value: "+20 XX XXX XXXX" },
         { label: "Email", value: "info@tawasul-cs.com" },
-        { label: "WhatsApp", value: "+20 XX XXX XXXX" },
+        { label: "Next step", value: "Share your support scope by email and we will guide the next step." },
+        { label: "Languages", value: "English and Arabic support" },
       ],
-      locationTitle: "Location",
-      locationText: "Office location details will be added here soon.",
+      locationTitle: "Service coordination",
+      locationText:
+        "We coordinate support operations remotely and can share location and engagement details during consultation.",
     },
   },
   ar: {
     meta: {
       siteTitle: "تواصل لحلول مراكز الاتصال",
       siteDescription:
-        "حلول احترافية ثنائية اللغة لمراكز الاتصال الخارجية للشركات العاملة في السياحة والحجوزات والخدمات.",
+        "دعم ثنائي اللغة لمراكز الاتصال الخارجية للشركات العاملة في السفر والحجوزات والخدمات.",
     },
     brand: {
       short: "Tawasul",
       arabic: "تواصل",
       full: "Tawasul Contact Solutions",
-      tagline: "تميز في مراكز الاتصال عن بُعد للمحادثات المهمة للأعمال.",
+      tagline: "دعم منظم ثنائي اللغة للمحادثات المهمة في خدمة العملاء.",
     },
     nav: {
       home: "الرئيسية",
       about: "من نحن",
-      services: "خدماتنا",
-      why: "لماذا نحن",
+      services: "الخدمات",
+      why: "لماذا تواصل",
       contact: "تواصل معنا",
     },
     shared: {
@@ -457,295 +515,336 @@ export const siteContent: Record<Language, SiteCopy> = {
       primaryCta: "اطلب استشارة",
       secondaryCta: "استعرض الخدمات",
       footerStatement:
-        "تساعد تواصل الشركات على تقديم تواصل احترافي ومتعدد اللغات ومتوافق مع هوية العلامة التجارية.",
-      contactPrompt: "تحدث مع فريقنا حول احتياجاتك التشغيلية.",
+        "تساعد تواصل شركات السفر والحجوزات والأعمال الخدمية على بناء تواصل أكثر سرعة وانتظاماً من خلال فرق دعم عن بُعد ثنائية اللغة.",
+      contactPrompt: "أخبرنا بطبيعة سير العمل أو التغطية المطلوبة أو التحديات الحالية في الدعم.",
       footerServiceLabels: [
-        "دعم السياحة",
-        "دعم حجوزات الطيران",
-        "إسناد خدمة العملاء",
-        "فرق متعددة اللغات",
+        "عمليات دعم السفر",
+        "مساندة حجوزات الطيران",
+        "خدمة عملاء ثنائية اللغة",
+        "تغطية فترات الضغط وخارج الدوام",
       ],
+      footerIndustryLabels: [
+        "وكالات السفر",
+        "منصات الحجز",
+        "الخدمات السياحية والضيافة",
+        "الأعمال الخدمية التي تتعامل مباشرة مع العملاء",
+      ],
+      coverageLabel: "تغطية بالعربية والإنجليزية",
       sectionLabels: {
-        overview: "نبذة عن الشركة",
+        overview: "نبذة تشغيلية",
         services: "الخدمات الأساسية",
-        values: "قيمنا",
-        advantages: "مزايا الأعمال",
-        contact: "تواصل معنا",
+        values: "أسلوب عملنا",
+        advantages: "لماذا تواصل",
+        contact: "الخطوة التالية",
       },
     },
     home: {
-      eyebrow: "تميز مراكز الاتصال عن بُعد",
-      title:
-        "دعم احترافي خارجي لمراكز الاتصال مصمم لقطاعات السفر والحجوزات والأعمال الخدمية.",
+      eyebrow: "دعم ثنائي اللغة لمراكز الاتصال",
+      title: "دعم ثنائي اللغة لمراكز الاتصال مصمم لقطاعات السفر والحجوزات والأعمال الخدمية.",
       subtitle:
-        "تقدم تواصل لحلول مراكز الاتصال خدمات اتصال ثنائية اللغة، ودعماً للحجوزات، وعمليات تشغيل مرنة لمراكز الاتصال عن بُعد للشركات التي تحتاج إلى سعة تشغيلية موثوقة وتواصل يعكس علامتها التجارية باحترافية.",
+        "تساعد تواصل الشركات على إدارة تواصل العملاء من خلال دعم موثوق بالعربية والإنجليزية، ومساندة الحجوزات، والتعامل مع ضغط الاستفسارات، وتشغيل فرق دعم مرنة عن بُعد.",
       stats: [
-        { value: "24/7", label: "جاهزية تشغيلية" },
-        { value: "B2B", label: "نموذج الخدمة" },
-        { value: "AR / EN", label: "اللغات الأساسية" },
+        { value: "العربية + الإنجليزية", label: "لغتا الخدمة الأساسيتان" },
+        { value: "تغطية مرنة", label: "دوام أساسي أو ساعات ممتدة أو دعم وقت الضغط" },
+        { value: "نموذج B2B", label: "مهيأ للأعمال الخدمية" },
       ],
-      overviewTitle: "شريك تشغيلي استراتيجي لإدارة التفاعلات عالية الكثافة مع العملاء",
+      proofTitle: "أكثر من مجرد دعم وقت الذروة",
+      proofIntro: "تواصل مناسبة للشركات التي تحتاج إلى ثبات أكبر في التعامل مع العملاء ووضوح أكبر في الإجراءات واستمرارية في الخدمة عند ارتفاع الطلب.",
+      proofItems: [
+        "مصمم للعمليات التي تؤثر فيها الاستفسارات الفائتة على الإيراد والثقة",
+        "متوافق مع إجراءاتك ومسارات التصعيد ومعايير الخدمة لديك",
+        "يساعد على تخفيف الضغط الداخلي دون الإضرار بجودة التواصل",
+      ],
+      overviewTitle: "شريك دعم للتعامل مع أحجام التواصل المرتفعة مع العملاء",
       overviewText:
-        "نخدم شركات السياحة، وشركات حجز الطيران، والمنشآت التي تحتاج إلى تواصل موثوق مع العملاء عبر المكالمات الواردة والصادرة. تم تصميم نموذجنا لتعزيز تجربة العميل وتقليل الضغط التشغيلي مع الحفاظ على جودة الخدمة واتساقها.",
+        "ندعم المؤسسات التي تحتاج إلى سرعة أكبر في الاستجابة، وثبات أعلى في خدمة العملاء، وسعة تشغيلية أكثر مرونة. من الاستفسارات والحجوزات إلى التغطية خارج الدوام ودعم فترات الضغط، تساعد فرقنا الشركات على البقاء متاحة ومنظمة ومتسقة في الخدمة.",
       serviceHighlights: [
         {
-          title: "مركز اتصال لشركات السياحة",
+          title: "عمليات دعم السفر",
           description:
-            "إدارة استفسارات الحجوزات، ودعم برامج الرحلات، والتأكيدات، والمتابعة مع العملاء لعلامات السفر.",
+            "التعامل مع الاستفسارات والتأكيدات والتواصل المرتبط بخطط السفر والمتابعة مع العملاء لشركات السفر.",
         },
         {
-          title: "دعم حجوزات الطيران",
+          title: "مساندة حجوزات الطيران",
           description:
-            "المساعدة في الحجوزات، وتغييرات المواعيد، والتواصل مع المسافرين، واستمرارية الخدمة.",
+            "دعم الحجوزات والتعديلات والتواصل مع المسافرين وسير العمل المرتبط بالخدمة في هذا المجال.",
         },
         {
-          title: "خدمة عملاء خارجية للشركات",
+          title: "خدمة عملاء خارجية",
           description:
-            "رعاية عملاء احترافية متعددة القنوات ومتوافقة مع معاييرك وإجراءاتك التشغيلية.",
+            "دعم وارد وصادر منظم ومتوافق مع قواعد الخدمة ونبرة التواصل ومسارات التصعيد الخاصة بك.",
         },
         {
           title: "فرق تشغيل مرنة عن بُعد",
           description:
-            "نماذج توظيف مرنة لفترات الذروة، وخدمة ما بعد الدوام، ومراحل نمو الأعمال.",
+            "سعة دعم مرنة لفترات الضغط والساعات الممتدة ومراحل النمو والتدفق العالي للاستفسارات.",
         },
       ],
-      whyTitle: "لماذا تثق الشركات في تواصل",
+      industryTitle: "القطاعات الأنسب لهذا النموذج",
+      industryIntro:
+        "نحقق أفضل قيمة في البيئات الخدمية التي تتطلب سرعة في الاستجابة ودقة في الحجوزات وطمأنة واضحة للعملاء.",
+      industries: [
+        "وكالات السفر وفرق الحجوزات",
+        "عمليات الطيران وإصدار التذاكر",
+        "الخدمات المرتبطة بالضيافة والسياحة",
+        "الأعمال التي يتزايد لديها الطلب على دعم العملاء",
+      ],
+      whyTitle: "لماذا تختار الشركات تواصل",
       whyItems: [
         {
-          title: "هيكل خدمة مصمم للأعمال",
+          title: "تعامل ثنائي اللغة مع العملاء",
           description:
-            "كل إجراء تشغيلي مبني على جودة الاستجابة، والمساءلة، والقيمة التشغيلية القابلة للقياس.",
+            "الدعم بالعربية والإنجليزية يساعدك على خدمة شرائح أوسع من العملاء بوضوح أفضل.",
         },
         {
-          title: "تعامل متعدد اللغات مع العملاء",
+          title: "استجابة يمكن الاعتماد عليها",
           description:
-            "الدعم بالعربية والإنجليزية يساعد الشركات على خدمة شرائح أوسع بوضوح وثقة.",
+            "نساعد الفرق على الحفاظ على سرعة الاستجابة خلال فترات الضغط والساعات الممتدة.",
         },
         {
-          title: "استمرارية وتوفر دائم",
+          title: "تغطية تشغيلية مرنة",
           description:
-            "يمكن تهيئة نماذج تغطية للعمل خارج أوقات الدوام وفترات الضغط العالي وعلى مدار الساعة.",
+            "يمكن تصميم نموذج الدعم حسب الحاجة إلى فريق مخصص أو مشترك أو دعم وقت الذروة أو تغطية خارج الدوام.",
         },
         {
-          title: "تمثيل راقٍ للعلامة التجارية",
+          title: "تمثيل مهني للخدمة",
           description:
-            "فرقنا مؤهلة لتمثيل شركتك باحترافية واتساق واهتمام بالتفاصيل.",
+            "يُدار التواصل مع العملاء بثبات واهتمام وبما ينسجم مع معايير علامتك التجارية.",
         },
       ],
-      ctaTitle: "هل تحتاج إلى شريك موثوق لمركز اتصال عن بُعد؟",
+      ctaTitle: "هل تحتاج إلى تشغيل أكثر موثوقية لدعم العملاء؟",
       ctaText:
-        "دعنا نساعدك في تصميم نموذج دعم يناسب قطاعك وحجم الخدمة وتوقعات عملائك.",
+        "نساعد الشركات على بناء نموذج دعم يرفع سرعة الاستجابة ويحافظ على جودة الخدمة ويخفف الضغط على الفرق الداخلية خلال أوقات الذروة.",
+      ctaButtonLabel: "ناقش معنا نموذج الدعم",
     },
     about: {
       eyebrow: "عن تواصل",
-      title: "بُنينا لنعزز تواصلك مع العملاء بانضباط وثقة.",
+      title: "بُنينا لنعزز تواصل العملاء دون تعقيد إضافي داخل الشركة.",
       intro:
-        "انطلقت تواصل لحلول مراكز الاتصال من فكرة واضحة: ينبغي أن تتمكن الشركات من توسيع تواصلها مع العملاء دون التضحية بالاحترافية أو سرعة الاستجابة أو سلامة صورتها أمام السوق.",
-      storyTitle: "قصتنا",
+        "تأسست تواصل لخدمة الشركات التي تحتاج إلى سعة أكبر في التواصل مع العملاء من دون فقدان السيطرة على جودة الخدمة أو تجربة العميل أو الانضباط التشغيلي اليومي.",
+      storyTitle: "من نحن",
       storyText:
-        "نركز على خدمات مراكز الاتصال عن بُعد للشركات التي تعتمد على تواصل دقيق وفي الوقت المناسب ويبعث على الاطمئنان. ومن دعم السفر والحجوزات إلى خدمات العملاء العامة، نساعد المؤسسات على الحفاظ على جودة الخدمة مع توسيع طاقتها التشغيلية من خلال نموذج إسناد خارجي مرن.",
-      missionTitle: "رسالتنا",
+        "نعمل مع شركات السفر والحجوزات والأعمال الخدمية التي لا تحتمل ضياع الاستفسارات أو ضعف التعامل مع العملاء أو تراجع الاستجابة خارج الدوام. دورنا هو توسيع فرقك الداخلية من خلال دعم خارجي منظم ومتوافق مع سير العمل الحقيقي وتوقعات العملاء.",
+      missionTitle: "مهمتنا",
       missionText:
-        "تقديم خدمات مراكز اتصال خارجية احترافية للشركات بما يعزز سرعة الاستجابة واستمرارية الدعم ويقوي ثقة العملاء.",
+        "مساعدة الشركات على تقديم تواصل سريع وموثوق ومنظم مع العملاء من خلال دعم خارجي واضح البنية.",
       visionTitle: "رؤيتنا",
       visionText:
-        "أن نكون شريكاً إقليمياً مفضلاً في تشغيل مراكز الاتصال الثنائية اللغة عن بُعد في القطاعات التي تؤثر فيها جودة التواصل مباشرة في ثقة العميل.",
-      valuesHeading: "القيم التي توجه أسلوب عملنا",
+        "أن نكون شريكاً موثوقاً في تشغيل مراكز الاتصال الثنائية اللغة للشركات الخدمية في قطاعات السفر والحجوزات والقطاعات ذات التفاعل المباشر مع العملاء.",
+      valuesHeading: "أسلوب عملنا",
       values: [
         {
           title: "تمثيل احترافي",
           description:
-            "نتواصل بطريقة تحفظ العلامات التجارية التي نخدمها وترفع من قيمتها.",
+            "ندير تواصل العملاء بطريقة تدعم المصداقية والثبات والثقة في الأعمال التي نمثلها.",
         },
         {
-          title: "اعتمادية تشغيلية",
+          title: "انضباط تشغيلي",
           description:
-            "الثبات، وسرعة الاستجابة، والانضباط في الإجراءات عناصر أساسية في كل شراكة تشغيلية.",
+            "التغطية والتصعيد والمتابعة والتقارير تُدار وفق نظام واضح وليس باجتهادات متفرقة.",
         },
         {
-          title: "شراكة حقيقية مع العميل",
+          title: "مواءمة مع العميل",
           description:
-            "نعمل كامتداد تشغيلي لعملائنا، لا كمورد خارجي منفصل عن واقع أعمالهم.",
+            "نكيّف الإجراءات ونبرة التواصل وقواعد الخدمة بما يتوافق مع طريقة عمل نشاطك فعلياً.",
         },
         {
-          title: "تطوير مستمر",
+          title: "تحسين مستمر",
           description:
-            "نحسن الإجراءات وضبط الجودة وجهوزية الفرق باستمرار لدعم الأداء طويل المدى.",
+            "جودة الدعم تتحسن عبر المراجعة الدائمة ووضوح الإجراءات وقوة التنسيق اليومي.",
         },
       ],
     },
     services: {
-      eyebrow: "محفظة الخدمات",
-      title: "خدمات مراكز اتصال خارجية مصممة للأعمال ذات المتطلبات التشغيلية المرتفعة.",
+      eyebrow: "خدمات الدعم الخارجي",
+      title: "خدمات مراكز اتصال خارجية مصممة حول احتياجات تشغيلية حقيقية.",
       intro:
-        "تمت هيكلة خدماتنا للشركات التي تحتاج إلى تواصل سريع، ومسارات تصعيد واضحة، وتغطية تشغيلية قابلة للتوسع حسب الطلب.",
+        "خدماتنا موجهة للشركات التي تحتاج إلى استجابة أسرع، ودعم أكثر تنظيماً للعملاء، وسعة تشغيلية مرنة من دون توسيع الفريق الداخلي بشكل كبير.",
+      catalogTitle: "خدمات مصممة لرفع سرعة الاستجابة وتحسين استمرارية الدعم",
       items: [
         {
-          id: "tourism",
-          title: "مركز اتصال لشركات السياحة",
+          id: "travel-support",
+          title: "عمليات دعم السفر",
           description:
-            "دعم التواصل مع العملاء لوكالات السفر ومنظمي الرحلات والجهات المرتبطة بخدمات الضيافة والسياحة.",
+            "دعم لوكالات السفر ومنظمي الرحلات وفرق الحجز التي تحتاج إلى تعامل موثوق مع الاستفسارات والتأكيدات والمتابعة.",
           bullets: [
-            "استفسارات الحجوزات والباقات",
-            "تأكيد الحجوزات والمتابعة",
-            "التواصل الداعم لرحلات العملاء",
+            "استفسارات الحجوزات والبرامج",
+            "التأكيدات والمتابعة مع العملاء",
+            "التواصل المرتبط بخدمات السفر",
           ],
         },
         {
-          id: "flight",
-          title: "دعم حجوزات الطيران",
+          id: "flight-booking",
+          title: "مساندة حجوزات الطيران",
           description:
-            "مساندة مخصصة لشركات الطيران ومزودي التذاكر ومنصات الحجز ذات حجم الاستفسارات المرتفع.",
+            "مساعدة في الحجوزات والتعديلات والتواصل مع المسافرين والتعامل مع التحديثات المرتبطة بالجداول والخدمة.",
           bullets: [
-            "المساعدة في الحجز والتعديلات",
-            "التواصل حول تحديثات الجداول",
-            "تنسيق دعم المسافرين",
+            "المساعدة في الحجز والتعديل",
+            "تحديثات المسافرين والتواصل معهم",
+            "استمرارية الخدمة في الفترات المزدحمة",
           ],
         },
         {
-          id: "outsourced",
-          title: "مركز اتصال خارجي عام",
+          id: "customer-care",
+          title: "خدمة عملاء خارجية",
           description:
-            "تشغيل مرن لمراكز الاتصال عن بُعد للشركات التي تحتاج إلى سعة احترافية في المكالمات الواردة والصادرة.",
+            "دعم وارد وصادر متوافق مع إجراءاتك التشغيلية وتوقعات الخدمة ومسارات التصعيد.",
           bullets: [
-            "استقبال المكالمات الواردة",
-            "حملات المتابعة الصادرة",
-            "الدعم الموسمي أو وقت الذروة",
-          ],
-        },
-        {
-          id: "customer-support",
-          title: "خدمات دعم العملاء",
-          description:
-            "دعم متوافق مع هوية العلامة التجارية بهدف رفع الرضا وتحسين الاحتفاظ واستمرارية الخدمة.",
-          bullets: [
-            "معالجة الشكاوى وتوثيق الحلول",
-            "تحديثات حالة الطلب أو الخدمة",
-            "التصعيد وجدولة معاودة الاتصال",
+            "استقبال طلبات الدعم",
+            "متابعة العملاء والإجراءات الصادرة",
+            "تنسيق التصعيد وإعادة الاتصال",
           ],
         },
         {
           id: "multilingual",
           title: "تواصل متعدد اللغات",
           description:
-            "التواصل بالعربية والإنجليزية للمؤسسات التي تخدم شرائح متنوعة من العملاء.",
+            "دعم بالعربية والإنجليزية للشركات التي تخدم عملاء محليين وإقليميين ودوليين.",
           bullets: [
             "خدمة العملاء باللغة العربية",
-            "تواصل الأعمال باللغة الإنجليزية",
-            "اتساق النصوص ونبرة التواصل",
+            "التواصل باللغة الإنجليزية",
+            "اتساق النصوص ونبرة الخدمة",
           ],
         },
         {
-          id: "24-7",
-          title: "تغطية بعد الدوام وعلى مدار الساعة",
+          id: "overflow-support",
+          title: "دعم فترات الضغط والمواسم",
           description:
-            "نماذج جاهزية تساعد الشركات على البقاء متاحة في أوقات الذروة وخارج ساعات العمل المعتادة.",
+            "سعة إضافية للشركات النامية أو فترات الذروة أو الحملات أو الاختناقات التشغيلية.",
           bullets: [
-            "إعداد دعم ممتد الساعات",
-            "تغطية الاستفسارات العاجلة",
-            "خطط استمرارية لفترات الضغط",
+            "التعامل مع زيادة الاستفسارات",
+            "دعم موسمي أو مرتبط بالحملات",
+            "رفع القدرة على الاستجابة",
+          ],
+        },
+        {
+          id: "extended-hours",
+          title: "تغطية الساعات الممتدة وخارج الدوام",
+          description:
+            "نماذج تشغيل تساعد الشركات على البقاء متاحة خارج ساعات العمل الأساسية أو خلال فترات الطلب المرتفع.",
+          bullets: [
+            "إعداد دعم بساعات ممتدة",
+            "التعامل مع تواصل العملاء خارج الدوام",
+            "استمرارية الاستجابة للاستفسارات العاجلة",
           ],
         },
       ],
-      deliveryApproach: "منهجية التنفيذ",
-      processTitle: "كيف نعمل مع العملاء",
+      deliveryApproach: "آلية التنفيذ",
+      processTitle: "كيف نطلق الدعم ونديره",
+      processIntro:
+        "كل تعاون يبدأ بفهم نطاق الخدمة وقواعد التواصل ونموذج التغطية الأنسب لطبيعة عملك.",
       processSteps: [
         {
           step: "01",
-          title: "تقييم تشغيلي",
+          title: "تقييم الاحتياج",
           description:
-            "نراجع احتياجات الخدمة، وفترات الذروة، وأولويات التواصل، ومتطلبات القطاع.",
+            "نراجع نطاق الدعم وساعات التشغيل وأنواع الاستفسارات واحتياجات التصعيد ونقاط الضغط الحالية.",
         },
         {
           step: "02",
           title: "مواءمة الإجراءات",
           description:
-            "نهيكل النصوص ومسارات التصعيد وقواعد الخدمة والتقارير بما يتوافق مع علامتك التجارية.",
+            "نصمم النصوص وقواعد الخدمة وآليات الاستجابة والتصعيد بما يتوافق مع سير عملك.",
         },
         {
           step: "03",
           title: "تفعيل الفريق",
           description:
-            "يتم تشغيل نموذج الفرق المخصصة أو المشتركة بحسب نطاق الدعم والجدول الزمني المطلوب.",
+            "يبدأ التشغيل من خلال نموذج مخصص أو مشترك أو دعم وقت الضغط أو تغطية خارج الدوام وفق النطاق المتفق عليه.",
         },
         {
           step: "04",
-          title: "استمرارية الجودة",
+          title: "المتابعة والتحسين",
           description:
-            "نحافظ على الأداء عبر المتابعة والتحسين والتواصل التشغيلي المستمر.",
+            "نحافظ على اتساق الخدمة عبر التواصل المستمر والمراجعة وتحسين الإجراءات.",
         },
+      ],
+      supportModelsTitle: "نماذج الدعم التي يمكن ترتيبها",
+      supportModels: [
+        "فرق دعم مخصصة",
+        "نماذج خدمة مشتركة",
+        "سعة إضافية لأوقات الضغط",
+        "ترتيبات تغطية خارج الدوام",
       ],
     },
     why: {
-      eyebrow: "لماذا نحن",
-      title: "شريك لمراكز الاتصال عن بُعد يجمع بين المرونة والجودة والتحكم في التكلفة.",
+      eyebrow: "لماذا تواصل",
+      title: "طريقة أكثر موثوقية لتوسيع قدرتك على دعم العملاء.",
       intro:
-        "تختار الشركات تواصل عندما تحتاج إلى أكثر من مجرد زيادة عدد الموظفين. إنها تحتاج إلى تشغيل دعم منظم يحافظ على تجربة العميل ويحسن التغطية والكفاءة في الوقت نفسه.",
+        "تواصل مناسبة للشركات التي تحتاج إلى أكثر من مجرد زيادة عدد الأفراد. نحن نوفر دعماً منظماً عن بُعد يرفع التغطية ويحافظ على تجربة العميل ويساعد الفرق على الاستجابة بثبات تحت الضغط.",
       items: [
         {
-          title: "فهم لطبيعة القطاعات",
+          title: "تعامل ثنائي اللغة مع العملاء",
           description:
-            "ندرك مستوى الدقة والسرعة المطلوبين في السياحة والحجوزات وبيئات الخدمة المباشرة.",
+            "الدعم بالعربية والإنجليزية يوسّع سهولة الوصول ويقلل الاحتكاك في التواصل مع شرائح مختلفة.",
         },
         {
-          title: "خيارات توفر 24/7",
+          title: "تغطية تشغيلية مرنة",
           description:
-            "يتم تصميم نماذج التغطية للحفاظ على سرعة الاستجابة خلال الساعات الممتدة وفترات الضغط.",
+            "يمكن تشكيل التغطية حسب ساعات العمل الأساسية أو الساعات الممتدة أو ضغط الطلب أو الحاجة إلى فريق أكثر تخصيصاً.",
         },
         {
-          title: "وكلاء متعددون للغات",
+          title: "فهم لسير عمل السفر والحجوزات",
           description:
-            "القدرة على التواصل بالعربية والإنجليزية تدعم وضوح الخدمة مع جمهور محلي ودولي.",
+            "النموذج مناسب لبيئات الحجز والتواصل المباشر التي تتطلب دقة وسرعة في التعامل.",
         },
         {
-          title: "إجراءات مدعومة بالتقنية",
+          title: "إدارة واضحة للتصعيد والإجراءات",
           description:
-            "العمليات المنظمة والانضباط في المتابعة والتقارير يساعدان على الحفاظ على اتساق الخدمة.",
+            "الدعم ينجح أكثر عندما تكون قواعد الاستجابة والتصعيد والمتابعة واضحة ومُدارة بشكل منظم.",
         },
         {
-          title: "توسع فعال من حيث التكلفة",
+          title: "توسع فعّال من حيث التكلفة",
           description:
-            "الإسناد الخارجي يمنح الشركات قدرة أكبر على توسيع الدعم مع مرونة مالية أفضل.",
+            "يمكن للشركات زيادة قدرتها على التواصل مع العملاء من دون تحمل كامل كلفة التوسع الداخلي.",
         },
         {
-          title: "تمثيل موثوق للعلامة التجارية",
+          title: "ثبات في تمثيل الخدمة",
           description:
-            "نوجه كل تفاعل ليعكس الاحترافية والطمأنينة والسيطرة التشغيلية.",
+            "يجب أن يشعر العميل بأن التواصل منظم ومحترم ومتسق مع سمعة العمل الذي يتعامل معه.",
         },
       ],
-      proofTitle: "ما الذي يستفيده العملاء",
-      proofHeading: "نتائج تشغيلية تدعم النمو والاستمرارية",
+      proofTitle: "ماذا يعني ذلك لعملك",
+      proofHeading: "نتائج عملية وليست وعوداً عامة",
+      proofText:
+        "يساعد نموذجنا الشركات على البقاء متاحة ومنظمة ومتسقة في الخدمة عندما ترتفع أحجام التواصل أو تمتد ساعات التشغيل.",
       proofPoints: [
-        "تقليل الضغط التشغيلي خلال فترات الذروة",
-        "رفع سرعة الاستجابة دون المساس بالاحترافية",
-        "دعم ثنائي اللغة يوسع سهولة الوصول للعملاء",
-        "نموذج إسناد مرن يدعم توسع الأعمال",
+        "استجابة أسرع للعملاء في الفترات المزدحمة",
+        "ضغط أقل على الفرق الداخلية",
+        "ثبات أكبر في التعامل بالعربية والإنجليزية",
+        "سعة دعم مرنة دون توسع داخلي كامل",
       ],
+      ctaLabel: "تحدث مع فريقنا",
     },
     contact: {
-      eyebrow: "تواصل معنا",
-      title: "ابدأ معنا حواراً حول احتياجاتك في الدعم والتشغيل.",
+      eyebrow: "تواصل مع تواصل",
+      title: "دعنا نبني نموذج الدعم المناسب لعملك.",
       intro:
-        "سواء كنت بحاجة إلى فريق خارجي مخصص، أو دعم عملاء ثنائي اللغة، أو تغطية لفترات الضغط، يمكننا مساعدتك في بناء النموذج التشغيلي المناسب.",
-      formTitle: "أرسل لنا استفسارك",
-      formHeading: "دعنا نناقش نطاق الخدمة المناسب لأعمالك",
+        "سواء كنت تحتاج إلى دعم عملاء ثنائي اللغة أو تغطية وقت الضغط أو فريق خارجي مخصص، يمكننا مساعدتك في تحديد النموذج الأنسب لسير العمل ومستوى الخدمة المطلوب.",
+      formTitle: "أخبرنا بما تحتاجه",
+      formHeading: "ابدأ الحديث معنا من خلال نطاق الدعم وأولويات التشغيل",
+      formIntro:
+        "شاركنا نوع عملك ونطاق الدعم والتحديات الحالية. سيقوم فريقنا بمراجعة طلبك والتواصل معك بالخطوة الأنسب.",
       formFields: {
         name: "الاسم الكامل",
         company: "اسم الشركة",
         email: "البريد الإلكتروني للأعمال",
         phone: "رقم الهاتف",
-        message: "أخبرنا باحتياجاتك في الدعم",
-        submit: "إرسال الاستفسار",
-        success: "شكراً لك. تم استلام استفسارك وسنتواصل معك قريباً.",
+        message: "أخبرنا عن احتياجاتك في الدعم",
+        submit: "إرسال الطلب",
+        success: "شكراً لك. تم استلام طلبك وسيقوم فريقنا بالتواصل معك قريباً.",
       },
-      directTitle: "بيانات التواصل",
+      directTitle: "تحدث معنا مباشرة",
+      directIntro:
+        "إذا كانت متطلباتك واضحة بالفعل، يمكنك التواصل معنا عبر الوسيلة الأنسب لك.",
       directItems: [
-        { label: "الهاتف", value: "+20 XX XXX XXXX" },
         { label: "البريد الإلكتروني", value: "info@tawasul-cs.com" },
-        { label: "واتساب", value: "+20 XX XXX XXXX" },
+        { label: "الاستشارة", value: "اطلب استشارة من خلال نموذج التواصل" },
+        { label: "اللغات", value: "الدعم بالعربية والإنجليزية" },
       ],
-      locationTitle: "الموقع",
-      locationText: "سيتم إضافة تفاصيل موقع المكتب هنا قريباً.",
+      locationTitle: "تنسيق الخدمة",
+      locationText:
+        "يتم تنسيق عمليات الدعم عن بُعد، ويمكننا مشاركة تفاصيل الموقع وآلية التعاقد خلال الاستشارة.",
     },
   },
 };

@@ -1,112 +1,67 @@
-/*
-Design reminder for this file: Aviation-informed luxury minimalism.
-The contact page should feel reassuring, polished, and conversion-oriented without becoming sales-heavy.
-*/
-
-import { FormEvent, useState } from "react";
-import { Mail, MapPin, MessageCircle, PhoneCall } from "lucide-react";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Mail, MapPin, MessageCircle, PhoneCall } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { PageHero } from "@/components/PageHero";
+import { SectionIntro } from "@/components/SectionIntro";
 import { SiteLayout } from "@/components/SiteLayout";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/hooks/useI18n";
 import { images } from "@/lib/assets";
 
-const contactImage = images.contactLounge;
-
-const contactIcons = [PhoneCall, Mail, MessageCircle] as const;
+const contactIcons = [Mail, MessageCircle, PhoneCall] as const;
 
 export default function Contact() {
   const { content, rtl } = useI18n();
 
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.info("[Contact Form] Submission data:", data);
-
-    // TODO: Replace with actual backend endpoint when ready
-    // try {
-    //   await fetch("/api/contact", { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json" } });
-    // } catch { toast.error("Something went wrong. Please try again."); return; }
-
-    toast.success(content.contact.formFields.success);
-    setSubmitted(true);
-    event.currentTarget.reset();
-  };
-
   return (
     <SiteLayout pageKey="contact">
-      <section className="relative isolate overflow-hidden pt-10 sm:pt-14">
-        <div className="absolute inset-0 -z-10">
-          <img src={contactImage} alt="Premium executive reception environment" className="h-full w-full object-cover opacity-26" />
-          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(7,11,21,0.97),rgba(7,11,21,0.88),rgba(7,11,21,0.75))]" />
-        </div>
-        <div className="container pb-18 pt-8 sm:pb-20 lg:pb-24 lg:pt-14">
-          <div className="max-w-4xl space-y-6">
-            <p className="eyebrow-chip">{content.contact.eyebrow}</p>
-            <h1 className={cn("text-4xl text-white sm:text-5xl lg:text-6xl", rtl ? "font-ar-heading leading-[1.5]" : "font-display tracking-[-0.04em]")}>
-              {content.contact.title}
-            </h1>
-            <p className="max-w-3xl text-base leading-8 text-white/72 sm:text-lg">{content.contact.intro}</p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={content.contact.eyebrow}
+        title={content.contact.title}
+        intro={content.contact.intro}
+        image={images.contactLounge}
+        imageAlt="Executive reception environment"
+        rtl={rtl}
+      />
 
       <section className="section-shell pb-20 sm:pb-24">
-        <div className="container grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
-          <Card className="surface-card overflow-hidden">
+        <div className="container space-y-8">
+          <Card className="surface-panel overflow-hidden">
             <CardContent className="space-y-6 p-7 sm:p-8">
-              <div className="space-y-3">
-                <p className="section-kicker">{content.contact.formTitle}</p>
-                <h2 className={cn("text-3xl text-white", rtl ? "font-ar-heading leading-[1.5]" : "font-display tracking-[-0.03em]")}>
-                  {content.contact.formHeading}
-                </h2>
+              <SectionIntro
+                kicker={content.contact.directTitle}
+                title={content.contact.formHeading}
+                copy={content.shared.contactPrompt}
+                rtl={rtl}
+                className="section-on-dark space-y-3"
+              />
+              <div className="grid gap-3 sm:grid-cols-3">
+                {content.contact.directItems.map((item, index) => {
+                  const Icon = contactIcons[index] ?? PhoneCall;
+                  return (
+                    <div key={item.label} className="metric-card bg-white/10 text-white shadow-none">
+                      <div className="mb-4 inline-flex size-10 items-center justify-center rounded-2xl border border-white/18 bg-white/10 text-primary">
+                        <Icon className="size-4" />
+                      </div>
+                      <p className="text-sm font-semibold text-white">{item.label}</p>
+                      <p className="mt-2 text-sm leading-7 text-white/80">{item.value}</p>
+                    </div>
+                  );
+                })}
               </div>
-
-              <form className="grid gap-4" onSubmit={handleSubmit}>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <Input required name="fullName" aria-label={content.contact.formFields.name} placeholder={content.contact.formFields.name} className="h-12 border-white/12 bg-white/6 text-white placeholder:text-white/35" />
-                  <Input required name="company" aria-label={content.contact.formFields.company} placeholder={content.contact.formFields.company} className="h-12 border-white/12 bg-white/6 text-white placeholder:text-white/35" />
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <Input required name="email" type="email" dir="ltr" aria-label={content.contact.formFields.email} placeholder={content.contact.formFields.email} className="h-12 border-white/12 bg-white/6 text-white placeholder:text-white/35" />
-                  <Input name="phone" aria-label={content.contact.formFields.phone} placeholder={content.contact.formFields.phone} className="h-12 border-white/12 bg-white/6 text-white placeholder:text-white/35" />
-                </div>
-                <Textarea required name="message" aria-label={content.contact.formFields.message} placeholder={content.contact.formFields.message} className="min-h-36 border-white/12 bg-white/6 text-white placeholder:text-white/35" />
-                <Button type="submit" disabled={submitted} className="mt-2 h-12 rounded-full bg-primary text-[color:var(--primary-foreground)] hover:bg-primary/92 disabled:opacity-60">
-                  {submitted
-                    ? content.contact.formFields.success
-                    : content.contact.formFields.submit}
-                </Button>
-              </form>
             </CardContent>
           </Card>
 
-          <div className="grid gap-6">
-            <Card className="surface-panel border-white/12 bg-white/6">
-              <CardContent className="space-y-5 p-7">
-                <p className="section-kicker">{content.contact.directTitle}</p>
-                <div className="grid gap-3">
-                  {content.contact.directItems.map((item, index) => {
-                    const Icon = contactIcons[index] ?? PhoneCall;
-                    return (
-                      <div key={item.label} className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4">
-                        <div className="inline-flex size-10 shrink-0 items-center justify-center rounded-2xl border border-primary/25 bg-primary/12 text-primary">
-                          <Icon className="size-4" />
-                        </div>
-                        <div className="space-y-1">
-                          <p className="text-sm text-white/52">{item.label}</p>
-                          <p className="text-sm text-white">{item.value}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
+          <div className="grid gap-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
+            <Card className="surface-light">
+              <CardContent className="space-y-5 p-7 sm:p-8">
+                <p className="section-kicker">{content.shared.sectionLabels.overview}</p>
+                <h2 className={cn("section-heading-balanced text-[2.05rem]", rtl && "leading-[1.5]")}>
+                  {content.contact.locationTitle}
+                </h2>
+                <p className="text-base leading-8 text-[rgba(10,58,102,0.82)]">{content.contact.locationText}</p>
+                <div className="hero-badge">
+                  <Mail className="size-4 text-primary" />
+                  info@tawasul-cs.com
                 </div>
               </CardContent>
             </Card>
@@ -118,9 +73,13 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <p className="section-kicker">{content.contact.locationTitle}</p>
-                  <p className="text-sm leading-7 text-white/72">{content.contact.locationText}</p>
+                  <p className="text-sm leading-7 text-white/84">{content.contact.locationText}</p>
                 </div>
-                <img src={contactImage} alt="Tawasul contact environment" className="h-56 w-full rounded-[1.5rem] object-cover" />
+                <img src={images.contactLounge} alt="Tawasul contact environment" className="h-56 w-full rounded-[1.5rem] object-cover" />
+                <div className="inline-flex items-center gap-2 text-sm font-medium text-white">
+                  <ArrowUpRight className="size-4 text-primary" />
+                  {content.shared.coverageLabel}
+                </div>
               </CardContent>
             </Card>
           </div>
