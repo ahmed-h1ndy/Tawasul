@@ -28,32 +28,32 @@ export default function Services() {
             rtl={rtl}
           />
 
-          <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
             {content.services.items.map((service, index) => (
               <Card key={service.id} className="surface-card h-full">
-                <CardContent className="flex h-full flex-col gap-5 p-6 sm:p-7">
+                <CardContent className="flex h-full flex-col gap-4 p-6 sm:p-7">
                   <div className="space-y-3">
                     <div className="flex items-center justify-between gap-4">
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/84">
+                      <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary/60">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
                     <h3
                       className={cn(
-                        "text-2xl text-[color:var(--surface-ivory-foreground)]",
-                        rtl ? "font-ar-heading text-xl leading-[1.55]" : "font-semibold"
+                        "card-heading",
+                        rtl ? "font-ar-heading leading-[1.55]" : ""
                       )}
                     >
                       {service.title}
                     </h3>
-                    <p className="text-sm leading-7 text-[rgba(10,58,102,0.82)]">{service.description}</p>
+                    <p className="card-copy">{service.description}</p>
                   </div>
 
                   <div className="mt-auto space-y-3 border-t border-[rgba(209,213,216,0.9)] pt-5">
                     {service.bullets.map((bullet) => (
                       <div key={bullet} className="detail-list-item">
                         <span className="detail-list-dot" />
-                        <span className="text-sm text-[rgba(10,58,102,0.84)]">{bullet}</span>
+                        <span className="card-copy">{bullet}</span>
                       </div>
                     ))}
                   </div>
@@ -72,17 +72,18 @@ export default function Services() {
               title={content.services.processTitle}
               copy={content.services.processIntro}
               rtl={rtl}
-              light
             />
 
-            <div className="grid gap-4 pt-8 md:grid-cols-2">
+            <div className="grid gap-5 pt-8 md:grid-cols-2">
               {content.services.processSteps.map((step) => (
                 <div key={step.step} className="light-metric-card">
-                  <div className={cn("text-3xl text-primary", rtl ? "font-ar-heading" : "font-display")}>{step.step}</div>
-                  <h3 className={cn("mt-4 text-lg text-[color:var(--surface-ivory-foreground)]", rtl ? "font-ar-heading" : "font-semibold")}>
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[rgba(10,58,102,0.82)]">{step.description}</p>
+                  <div className={cn("font-display text-[2.2rem] font-bold leading-none tracking-tight text-primary", rtl ? "font-ar-heading" : "")}>{step.step}</div>
+                  <div className="mt-4 space-y-3">
+                    <h3 className={cn("card-heading", rtl ? "font-ar-heading" : "")}>
+                      {step.title}
+                    </h3>
+                    <p className="card-copy">{step.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -91,7 +92,7 @@ export default function Services() {
           <Card className="surface-panel h-full border-white/10 bg-white/[0.04]">
             <CardContent className="space-y-5 p-7 sm:p-8">
               <p className="section-kicker">{content.shared.sectionLabels.overview}</p>
-              <h3 className="section-heading-balanced text-[2rem]">{content.services.supportModelsTitle}</h3>
+              <h2 className="section-heading-balanced">{content.services.supportModelsTitle}</h2>
               <div className="detail-list">
                 {content.services.supportModels.map((model) => (
                   <div key={model} className="detail-list-item">

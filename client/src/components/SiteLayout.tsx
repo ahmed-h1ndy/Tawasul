@@ -109,7 +109,7 @@ export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
                     >
                       {content.brand.full}
                     </p>
-                    <p className="hidden text-sm text-[rgba(10,58,102,0.84)] lg:block">{content.brand.tagline}</p>
+                    <p className="hidden text-sm text-[#0A3A66] lg:block">{content.brand.tagline}</p>
                   </div>
                 </div>
               </Link>
@@ -139,7 +139,7 @@ export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
             <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:gap-5">
               <nav
                 aria-label={language === "ar" ? "التنقل الرئيسي" : "Primary navigation"}
-                className="flex flex-wrap items-center justify-center gap-2 rounded-[1.6rem] border border-[rgba(209,213,216,0.9)] bg-white/84 p-2 text-sm text-[rgba(10,58,102,0.84)] shadow-[0_10px_30px_rgba(10,58,102,0.06)] xl:justify-start"
+                className="flex flex-wrap items-center justify-center gap-2 rounded-[1.6rem] border border-[rgba(209,213,216,0.9)] bg-white/84 p-2 text-sm text-[rgba(10,58,102,0.75)] shadow-[0_10px_30px_rgba(10,58,102,0.06)] xl:justify-start"
               >
                 {navigation.map((item) => {
                   const isActive = normalizePath(activeBasePath) === normalizePath(routeMap[item.key]);
@@ -194,16 +194,16 @@ export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
               <img
                 src={images.logo}
                 alt="Tawasul logo"
-                className="h-16 w-auto rounded-2xl border border-white/14 bg-white/8 p-2"
+                className="h-16 w-auto rounded-2xl border border-[rgba(209,213,216,0.22)] bg-white/92 p-2"
               />
               <div className="space-y-1">
-                <p className={cn("text-xs uppercase tracking-[0.18em] text-primary/85", rtl && "tracking-[0.08em]")}>
+                <p className={cn("section-kicker", rtl && "tracking-[0.08em]")}>
                   {content.brand.arabic}
                 </p>
-                <p className={cn("text-xl text-white", rtl ? "font-ar-heading" : "font-display")}>{content.brand.short}</p>
+                <p className={cn("text-xl font-semibold text-white", rtl ? "font-ar-heading" : "font-display")}>{content.brand.short}</p>
               </div>
             </div>
-            <p className="max-w-md text-sm leading-7 text-white/82">{content.shared.footerStatement}</p>
+            <p className="max-w-md text-sm leading-relaxed text-white/72">{content.shared.footerStatement}</p>
             <div className="hero-badge border-white/12 bg-white/[0.12] text-white/88">
               <Languages className="size-4 text-primary" />
               {content.shared.coverageLabel}
@@ -234,12 +234,12 @@ export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
 
           <div className="space-y-4">
             <p className="section-kicker">{content.shared.sectionLabels.contact}</p>
-            <p className="text-sm leading-7 text-white/78">{content.shared.contactPrompt}</p>
+            <p className="text-sm leading-relaxed text-white/72">{content.shared.contactPrompt}</p>
             <div className="space-y-3">
               {content.contact.directItems.map((item, index) => {
                 const Icon = contactIcons[index] ?? Mail;
                 return (
-                  <div key={item.label} className="flex items-start gap-3 text-sm text-white/82">
+                  <div key={item.label} className="flex items-start gap-3 text-sm text-white/75">
                     <Icon className="mt-1 size-4 text-primary" />
                     <div>
                       <p className="text-white/72">{item.label}</p>

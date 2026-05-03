@@ -9,7 +9,7 @@ const CDN_BASE =
 export const images = {
   logo: "/logo.png",
   hero: `${CDN_BASE}/tawasul-hero-reference-KXBhV6o5abx44VVS7iZCc5.webp`,
-  team: `${CDN_BASE}/tawasul-team-premium-ghLK3jwbePNkXH7BYnbBPn.webp`,
+  team: "/team.jpg",
   serviceNetwork: `${CDN_BASE}/tawasul-service-network-4rky5UqtEUaE9HBsanfJsh.webp`,
   contactLounge: `${CDN_BASE}/tawasul-contact-lounge-QmyERtjAo3nBqEcs4AtGuC.webp`,
 } as const;

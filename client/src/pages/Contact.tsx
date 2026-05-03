@@ -34,16 +34,16 @@ export default function Contact() {
                 rtl={rtl}
                 className="section-on-dark space-y-3"
               />
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-3">
                 {content.contact.directItems.map((item, index) => {
                   const Icon = contactIcons[index] ?? PhoneCall;
                   return (
-                    <div key={item.label} className="metric-card bg-white/10 text-white shadow-none">
+                    <div key={item.label} className="text-white">
                       <div className="mb-4 inline-flex size-10 items-center justify-center rounded-2xl border border-white/18 bg-white/10 text-primary">
                         <Icon className="size-4" />
                       </div>
-                      <p className="text-sm font-semibold text-white">{item.label}</p>
-                      <p className="mt-2 text-sm leading-7 text-white/80">{item.value}</p>
+                      <p className="text-sm font-semibold text-white/90">{item.label}</p>
+                      <p className="mt-1 text-sm font-medium leading-6 text-white/75">{item.value}</p>
                     </div>
                   );
                 })}
@@ -55,13 +55,13 @@ export default function Contact() {
             <Card className="surface-light">
               <CardContent className="space-y-5 p-7 sm:p-8">
                 <p className="section-kicker">{content.shared.sectionLabels.overview}</p>
-                <h2 className={cn("section-heading-balanced text-[2.05rem]", rtl && "leading-[1.5]")}>
+                <h2 className={cn("section-heading-balanced", rtl && "leading-[1.5]")}>
                   {content.contact.locationTitle}
                 </h2>
-                <p className="text-base leading-8 text-[rgba(10,58,102,0.82)]">{content.contact.locationText}</p>
+                <p className="card-copy">{content.contact.locationText}</p>
                 <div className="hero-badge">
                   <Mail className="size-4 text-primary" />
-                  info@tawasul-cs.com
+                  info@tawasul-eg.com
                 </div>
               </CardContent>
             </Card>
@@ -73,10 +73,10 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <p className="section-kicker">{content.contact.locationTitle}</p>
-                  <p className="text-sm leading-7 text-white/84">{content.contact.locationText}</p>
+                  <p className="card-copy">{content.contact.locationText}</p>
                 </div>
                 <img src={images.contactLounge} alt="Tawasul contact environment" className="h-56 w-full rounded-[1.5rem] object-cover" />
-                <div className="inline-flex items-center gap-2 text-sm font-medium text-white">
+                <div className="flex items-center gap-2 text-sm font-medium text-white/72">
                   <ArrowUpRight className="size-4 text-primary" />
                   {content.shared.coverageLabel}
                 </div>

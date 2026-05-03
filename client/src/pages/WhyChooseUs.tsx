@@ -34,25 +34,25 @@ export default function WhyChooseUs() {
             rtl={rtl}
           />
 
-          <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
             {content.why.items.map((item, index) => {
               const Icon = icons[index] ?? ShieldCheck;
               return (
                 <Card key={item.title} className="surface-card h-full">
-                  <CardContent className="flex h-full flex-col gap-5 p-6 sm:p-7">
+                  <CardContent className="flex h-full flex-col gap-4 p-6 sm:p-7">
                     <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-primary/25 bg-primary/12 text-primary">
                       <Icon className="size-5" />
                     </div>
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       <h3
                         className={cn(
-                          "text-xl text-[color:var(--surface-ivory-foreground)]",
-                          rtl ? "font-ar-heading leading-8" : "font-semibold"
+                          "card-heading",
+                          rtl ? "font-ar-heading leading-8" : ""
                         )}
                       >
                         {item.title}
                       </h3>
-                      <p className="text-sm leading-7 text-[rgba(10,58,102,0.82)]">{item.description}</p>
+                      <p className="card-copy">{item.description}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -70,11 +70,10 @@ export default function WhyChooseUs() {
               title={content.why.proofHeading}
               copy={content.why.proofText}
               rtl={rtl}
-              light
             />
-            <div className="grid gap-3 pt-7">
+            <div className="detail-list pt-6">
               {content.why.proofPoints.map((point) => (
-                <div key={point} className="detail-list-item light-list-item rounded-[1.35rem] border border-[rgba(209,213,216,0.9)] bg-white/76 px-4 py-4">
+                <div key={point} className="detail-list-item">
                   <span className="detail-list-dot" />
                   <span>{point}</span>
                 </div>
@@ -82,10 +81,10 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          <div className="surface-panel overflow-hidden p-4 sm:p-5">
+          <div className="surface-panel overflow-hidden p-5 sm:p-7">
             <img src={images.team} alt="Premium corporate support team" className="h-[26rem] w-full rounded-[1.5rem] object-cover" />
-            <div className="flex flex-wrap items-center justify-between gap-4 p-4 sm:p-5">
-              <p className="max-w-md text-sm leading-7 text-white/84">{content.shared.contactPrompt}</p>
+            <div className="flex flex-wrap items-center justify-between gap-5 pt-5 sm:pt-6">
+              <p className="max-w-md card-copy">{content.shared.contactPrompt}</p>
               <Button
                 asChild
                 className="w-full rounded-full bg-white px-5 font-semibold text-[#0A3A66] shadow-[0_16px_40px_rgba(10,58,102,0.12)] hover:bg-white/92 hover:text-[#0A3A66] sm:w-auto"

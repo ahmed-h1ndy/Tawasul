@@ -33,14 +33,14 @@ export default function Home() {
         imageAlt="Bilingual customer support operations"
         rtl={rtl}
         aside={
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
             {content.home.stats.map((stat) => (
               <Card key={stat.label} className="surface-panel border-white/10 bg-white/[0.055]">
                 <CardContent className="space-y-3 p-6">
-                  <p className="text-xs uppercase tracking-[0.18em] text-primary/88">{stat.label}</p>
-                  <p className={cn("text-2xl text-white", rtl ? "font-ar-heading leading-9" : "font-display")}>
-                    {stat.value}
+                  <p className={cn("stat-value text-white", rtl ? "font-ar-heading leading-9" : "")}>
+                    {stat.label}
                   </p>
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/60">{stat.value}</p>
                 </CardContent>
               </Card>
             ))}
@@ -61,21 +61,21 @@ export default function Home() {
         </div>
       </PageHero>
 
-      <section className="pb-8">
+      <section className="section-shell pt-0">
         <div className="container">
           <div className="surface-light grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:p-10">
             <div className="space-y-4">
               <p className="section-kicker">{content.shared.sectionLabels.advantages}</p>
-              <h2 className={cn("section-heading-balanced text-[color:var(--surface-ivory-foreground)]", rtl && "leading-[1.5]")}>
+              <h2 className={cn("section-heading-balanced", rtl && "leading-[1.5]")}>
                 {content.home.proofTitle}
               </h2>
-              <p className="text-sm leading-7 text-[rgba(10,58,102,0.82)]">{content.home.proofIntro}</p>
+              <p className="card-copy">{content.home.proofIntro}</p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {content.home.proofItems.map((item) => (
                 <div key={item} className="light-metric-card">
-                  <p className="text-sm leading-7 text-[rgba(10,58,102,0.82)]">{item}</p>
+                  <p className="card-copy">{item}</p>
                 </div>
               ))}
             </div>
@@ -92,28 +92,28 @@ export default function Home() {
             rtl={rtl}
           />
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2">
             {content.home.serviceHighlights.map((item, index) => {
               const Icon = icons[index] ?? Headset;
               return (
                 <Card key={item.title} className="surface-card h-full">
-                  <CardContent className="flex h-full flex-col gap-5 p-6">
+                  <CardContent className="flex h-full flex-col gap-4 p-6">
                     <div className="flex items-center justify-between gap-4">
                       <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-primary/25 bg-primary/12 text-primary">
                         <Icon className="size-5" />
                       </div>
-                      <span className="text-xs uppercase tracking-[0.18em] text-[rgba(10,58,102,0.4)]">0{index + 1}</span>
+                      <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary/50">0{index + 1}</span>
                     </div>
                     <div className="space-y-3">
                       <h3
                         className={cn(
-                          "text-xl text-[color:var(--surface-ivory-foreground)]",
-                          rtl ? "font-ar-heading leading-8" : "font-semibold"
+                          "card-heading",
+                          rtl ? "font-ar-heading leading-8" : ""
                         )}
                       >
                         {item.title}
                       </h3>
-                      <p className="text-sm leading-7 text-[rgba(10,58,102,0.82)]">{item.description}</p>
+                      <p className="card-copy">{item.description}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -132,7 +132,6 @@ export default function Home() {
                 title={content.home.industryTitle}
                 copy={content.home.industryIntro}
                 rtl={rtl}
-                light
               />
               <div className="detail-list pt-6">
                 {content.home.industries.map((item) => (
@@ -160,7 +159,7 @@ export default function Home() {
             rtl={rtl}
           />
 
-          <div className="grid gap-4">
+          <div className="grid gap-5">
             {content.home.whyItems.map((item, index) => {
               const Icon = proofIcons[index] ?? BadgeCheck;
               return (
@@ -169,16 +168,16 @@ export default function Home() {
                     <div className="mt-1 inline-flex size-11 shrink-0 items-center justify-center rounded-2xl border border-primary/25 bg-primary/12 text-primary">
                       <Icon className="size-5" />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <h3
                         className={cn(
-                          "text-lg text-[color:var(--surface-ivory-foreground)]",
-                          rtl ? "font-ar-heading" : "font-semibold"
+                          "card-heading",
+                          rtl ? "font-ar-heading" : ""
                         )}
                       >
                         {item.title}
                       </h3>
-                      <p className="text-sm leading-7 text-[rgba(10,58,102,0.82)]">{item.description}</p>
+                      <p className="card-copy">{item.description}</p>
                     </div>
                   </CardContent>
                 </Card>

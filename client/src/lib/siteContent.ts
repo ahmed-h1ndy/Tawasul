@@ -183,8 +183,8 @@ export const siteContent: Record<Language, SiteCopy> = {
       },
     },
     home: {
-      eyebrow: "Bilingual contact center support",
-      title: "Bilingual Contact Center Support Built For Travel, Booking, And Service Businesses.",
+      eyebrow: "Bilingual Contact Center Support",
+      title: "Bilingual contact center support built for travel, booking, and service businesses.",
       subtitle:
         "Tawasul helps companies manage customer communication with dependable English and Arabic support, reservation assistance, overflow handling, and scalable remote service operations.",
       stats: [
@@ -263,7 +263,7 @@ export const siteContent: Record<Language, SiteCopy> = {
     },
     about: {
       eyebrow: "About Tawasul",
-      title: "Built to strengthen customer communication without adding internal complexity.",
+      title: "Built to Strengthen Customer Communication Without Adding Internal Complexity.",
       intro:
         "Tawasul was created for businesses that need more communication capacity without losing control over service quality, customer experience, or day-to-day operating discipline.",
       storyTitle: "Who we are",
@@ -300,8 +300,8 @@ export const siteContent: Record<Language, SiteCopy> = {
       ],
     },
     services: {
-      eyebrow: "Outsourced support services",
-      title: "Outsourced contact center services designed around real operating needs.",
+      eyebrow: "Outsourced Support Services",
+      title: "Outsourced Contact Center Services Designed Around Real Operating Needs.",
       intro:
         "Our services are built for businesses that need faster response handling, structured customer support, and flexible service capacity without building a larger in-house team.",
       catalogTitle: "Service lines that improve response handling and support continuity",
@@ -413,7 +413,7 @@ export const siteContent: Record<Language, SiteCopy> = {
     },
     why: {
       eyebrow: "Why Tawasul",
-      title: "A more dependable way to extend your customer support capacity.",
+      title: "A More Dependable Way to Extend Your Customer Support Capacity.",
       intro:
         "Tawasul is built for businesses that need more than extra staffing. We provide structured remote support that improves coverage, protects customer experience, and helps teams stay responsive under pressure.",
       items: [
@@ -462,7 +462,7 @@ export const siteContent: Record<Language, SiteCopy> = {
     },
     contact: {
       eyebrow: "Contact Tawasul",
-      title: "Let’s build the right support model for your business.",
+      title: "Let’s Build the Right Support Model for Your Business.",
       intro:
         "Whether you need bilingual customer support, overflow coverage, or a dedicated outsourced team, we can help you define a support model that fits your workflow and service expectations.",
       formTitle: "Tell us what you need",
@@ -482,7 +482,7 @@ export const siteContent: Record<Language, SiteCopy> = {
       directIntro:
         "If you already know what you need, reach out through the channel that fits your workflow best.",
       directItems: [
-        { label: "Email", value: "info@tawasul-cs.com" },
+        { label: "Email", value: "info@tawasul-eg.com" },
         { label: "Next step", value: "Share your support scope by email and we will guide the next step." },
         { label: "Languages", value: "English and Arabic support" },
       ],
@@ -838,7 +838,7 @@ export const siteContent: Record<Language, SiteCopy> = {
       directIntro:
         "إذا كانت متطلباتك واضحة بالفعل، يمكنك التواصل معنا عبر الوسيلة الأنسب لك.",
       directItems: [
-        { label: "البريد الإلكتروني", value: "info@tawasul-cs.com" },
+        { label: "البريد الإلكتروني", value: "info@tawasul-eg.com" },
         { label: "الاستشارة", value: "اطلب استشارة من خلال نموذج التواصل" },
         { label: "اللغات", value: "الدعم بالعربية والإنجليزية" },
       ],

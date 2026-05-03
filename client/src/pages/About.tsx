@@ -29,21 +29,21 @@ export default function About() {
             <CardContent className="space-y-5 p-7 sm:p-8">
               <p className="section-kicker">{content.about.storyTitle}</p>
               <h2 className="section-heading-balanced">{content.brand.tagline}</h2>
-              <p className="section-copy max-w-none text-base">{content.about.storyText}</p>
+              <p className="section-copy">{content.about.storyText}</p>
             </CardContent>
           </Card>
 
           <div className="grid gap-6">
             <Card className="surface-panel border-primary/15 bg-primary/8">
-              <CardContent className="space-y-4 p-7">
-                <p className="section-kicker">{content.about.missionTitle}</p>
-                <p className="text-base leading-8 text-white/86">{content.about.missionText}</p>
+              <CardContent className="space-y-2 p-7">
+                <h3 className={cn("card-heading", rtl ? "font-ar-heading" : "")}>{content.about.missionTitle}</h3>
+                <p className="card-copy">{content.about.missionText}</p>
               </CardContent>
             </Card>
             <Card className="surface-light">
-              <CardContent className="space-y-4 p-7">
-                <p className="section-kicker">{content.about.visionTitle}</p>
-                <p className="text-base leading-8 text-[rgba(10,58,102,0.82)]">{content.about.visionText}</p>
+              <CardContent className="space-y-2 p-7">
+                <h3 className={cn("card-heading", rtl ? "font-ar-heading" : "")}>{content.about.visionTitle}</h3>
+                <p className="card-copy">{content.about.visionText}</p>
               </CardContent>
             </Card>
           </div>
@@ -58,25 +58,25 @@ export default function About() {
             rtl={rtl}
           />
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {content.about.values.map((value, index) => {
               const Icon = valueIcons[index] ?? ShieldCheck;
               return (
                 <Card key={value.title} className="surface-card h-full">
-                  <CardContent className="flex h-full flex-col gap-5 p-6">
+                  <CardContent className="flex h-full flex-col gap-4 p-6">
                     <div className="inline-flex size-12 items-center justify-center rounded-2xl border border-primary/25 bg-primary/12 text-primary">
                       <Icon className="size-5" />
                     </div>
                     <div className="space-y-3">
-                        <h3
-                          className={cn(
-                            "text-xl text-[color:var(--surface-ivory-foreground)]",
-                            rtl ? "font-ar-heading leading-8" : "font-semibold"
-                          )}
-                        >
-                          {value.title}
-                        </h3>
-                      <p className="text-sm leading-7 text-[rgba(10,58,102,0.82)]">{value.description}</p>
+                      <h3
+                        className={cn(
+                          "card-heading",
+                          rtl ? "font-ar-heading leading-8" : ""
+                        )}
+                      >
+                        {value.title}
+                      </h3>
+                      <p className="card-copy">{value.description}</p>
                     </div>
                   </CardContent>
                 </Card>

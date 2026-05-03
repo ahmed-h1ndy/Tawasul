@@ -131,6 +131,9 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans-ui);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.75;
     background-image:
       radial-gradient(circle at top, rgba(247, 106, 31, 0.08), transparent 24%),
       radial-gradient(circle at 82% 12%, rgba(10, 58, 102, 0.08), transparent 18%),
@@ -208,14 +211,14 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
   }
 
   .section-shell {
-    padding-block: clamp(4rem, 7vw, 7.5rem);
+    padding-block: clamp(3.5rem, 6vw, 6rem);
   }
 
   .section-kicker {
     color: rgba(247, 106, 31, 0.96);
     font-size: 0.74rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
   }
 
@@ -254,17 +257,23 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
   .section-heading {
     color: var(--foreground);
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.6rem);
+    font-size: clamp(2.25rem, 4.5vw, 3.8rem);
+    font-weight: 700;
     line-height: 1.06;
     letter-spacing: -0.04em;
+    text-wrap: balance;
+    font-variant-numeric: lining-nums;
   }
 
   .section-heading-balanced {
     color: var(--foreground);
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-size: clamp(1.9rem, 3.5vw, 3rem);
+    font-weight: 700;
     line-height: 1.14;
     letter-spacing: -0.03em;
+    text-wrap: balance;
+    font-variant-numeric: lining-nums;
   }
 
   html[dir="rtl"] .section-heading,
@@ -276,9 +285,33 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
 
   .section-copy {
     max-width: 46rem;
-    color: rgba(10, 58, 102, 0.82);
+    color: rgba(10, 58, 102, 0.72);
     font-size: 1rem;
-    line-height: 1.8;
+    font-weight: 400;
+    line-height: 1.82;
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: lining-nums;
+  }
+
+  .card-heading {
+    color: var(--foreground);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.38;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .card-copy {
+    color: rgba(10, 58, 102, 0.68);
+    font-size: 0.875rem;
+    line-height: 1.7;
   }
 
   .surface-panel {
@@ -296,14 +329,20 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
   }
 
   .surface-panel .section-heading,
-  .surface-panel .section-heading-balanced {
+  .surface-panel .section-heading-balanced,
+  .surface-panel .card-heading {
     color: white;
   }
 
   .surface-panel .section-copy,
+  .surface-panel .card-copy,
   .surface-panel .detail-list-item,
   .surface-panel .field-label {
-    color: rgba(255, 255, 255, 0.84);
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .surface-panel .detail-list-item {
+    font-weight: 500;
   }
 
   .surface-card {
@@ -331,12 +370,14 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
   }
 
   .surface-card .section-heading,
-  .surface-card .section-heading-balanced {
+  .surface-card .section-heading-balanced,
+  .surface-card .card-heading {
     color: var(--surface-ivory-foreground);
   }
 
-  .surface-card .section-copy {
-    color: rgba(10, 58, 102, 0.82);
+  .surface-card .section-copy,
+  .surface-card .card-copy {
+    color: rgba(10, 58, 102, 0.72);
   }
 
   .surface-light {
@@ -355,26 +396,29 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
   }
 
   .surface-light .section-heading,
-  .surface-light .section-heading-balanced {
+  .surface-light .section-heading-balanced,
+  .surface-light .card-heading {
     color: var(--surface-ivory-foreground);
   }
 
-  .surface-light .section-copy {
+  .surface-light .section-copy,
+  .surface-light .card-copy {
     color: rgba(10, 58, 102, 0.82);
   }
 
   .metric-card {
-    border-radius: 1.5rem;
+    border-radius: 1.25rem;
+    padding: 1.25rem;
     border: 1px solid rgba(209, 213, 216, 0.92);
     background: rgba(255, 255, 255, 0.92);
-    padding: 1.35rem;
   }
 
   .light-metric-card {
-    border-radius: 1.5rem;
-    border: 1px solid rgba(209, 213, 216, 0.86);
-    background: rgba(255, 255, 255, 0.88);
-    padding: 1.35rem;
+    border-radius: 1.25rem;
+    padding: 1.1rem 1.25rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.7));
+    border: 1px solid rgba(209, 213, 216, 0.5);
+    box-shadow: 0 4px 20px rgba(10, 58, 102, 0.03);
   }
 
   .detail-list {
@@ -387,6 +431,7 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
     align-items: flex-start;
     gap: 0.85rem;
     color: rgba(10, 58, 102, 0.86);
+    font-size: 14px;
     line-height: 1.75;
   }
 
@@ -400,9 +445,9 @@ All styling should reinforce clarity, confidence, refined blue-led professionali
   }
 
   .detail-list-dot {
-    margin-top: 0.72rem;
-    height: 0.45rem;
-    width: 0.45rem;
+    margin-top: 0.6rem;
+    height: 0.42rem;
+    width: 0.42rem;
     flex-shrink: 0;
     border-radius: 999px;
     background: rgba(247, 106, 31, 0.98);
