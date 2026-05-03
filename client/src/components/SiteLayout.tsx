@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { ArrowUpRight, Globe2, Languages, Mail, MessageCircle } from "lucide-react";
+import { Globe2, Languages, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
@@ -125,14 +125,6 @@ export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
                     {content.shared.switchLanguage}
                   </Link>
                 </Button>
-                <Button
-                  asChild
-                  className="h-11 rounded-full bg-primary px-5 font-semibold text-[#0A3A66] hover:bg-primary/92 hover:text-[#0A3A66]"
-                >
-                  <Link href={`${prefix}/contact`.replace("//", "/")}>
-                    {content.shared.primaryCta}
-                  </Link>
-                </Button>
               </div>
             </div>
 
@@ -169,14 +161,6 @@ export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
                   <Link href={languageSwitchHref}>
                     <Globe2 className="size-4" />
                     {content.shared.switchLanguage}
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  className="h-11 w-full rounded-full bg-primary px-5 font-semibold text-[#0A3A66] hover:bg-primary/92 hover:text-[#0A3A66] sm:w-auto"
-                >
-                  <Link href={`${prefix}/contact`.replace("//", "/")}>
-                    {content.shared.primaryCta}
                   </Link>
                 </Button>
               </div>
@@ -249,13 +233,7 @@ export function SiteLayout({ children, pageKey }: SiteLayoutProps) {
                 );
               })}
             </div>
-            <Link
-              href={`${prefix}/contact`.replace("//", "/")}
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary transition hover:text-primary/80"
-            >
-              {content.shared.primaryCta}
-              <ArrowUpRight className="size-4" />
-            </Link>
+
           </div>
         </div>
       </footer>
