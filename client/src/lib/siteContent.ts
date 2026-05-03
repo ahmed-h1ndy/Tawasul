@@ -184,7 +184,7 @@ export const siteContent: Record<Language, SiteCopy> = {
     },
     home: {
       eyebrow: "Bilingual contact center support",
-      title: "Bilingual contact center support built for travel, booking, and service businesses.",
+      title: "Bilingual Contact Center Support Built For Travel, Booking, And Service Businesses.",
       subtitle:
         "Tawasul helps companies manage customer communication with dependable English and Arabic support, reservation assistance, overflow handling, and scalable remote service operations.",
       stats: [
